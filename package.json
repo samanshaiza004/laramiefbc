@@ -1,0 +1,47 @@
+{
+  "name": "first-baptist-laramie",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["studio"],
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "eslint .",
+    "test": "bun test tests/cms-content.test.ts tests/site-url.test.ts",
+    "test:browser": "playwright test",
+    "test:browser:headed": "playwright test --headed",
+    "studio:dev": "bun run --cwd studio dev",
+    "studio:build": "bun run --cwd studio build",
+    "studio:deploy": "bun run --cwd studio deploy"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
+    "@sanity/astro": "^3.4.2",
+    "@sanity/client": "^7.11.2",
+    "astro": "^7.0.0",
+    "groq": "^3.0.0",
+    "mannerhtml": "^0.3.0",
+    "sharp": "^0.34.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@axe-core/playwright": "^4.10.2",
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.52.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "@types/bun": "latest",
+    "@types/node": "^24.10.1",
+    "astro-eslint-parser": "^1.2.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-astro": "^1.5.0",
+    "globals": "^16.5.0",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^8.0.0"
+  }
+}

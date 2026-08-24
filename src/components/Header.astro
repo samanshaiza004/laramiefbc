@@ -1,0 +1,47 @@
+---
+import type { ChurchSettings } from "../lib/cms/types";
+import { navigation, normalizePath } from "../site-config";
+
+interface Props {
+  settings: ChurchSettings;
+}
+
+const { settings } = Astro.props;
+const currentPath = normalizePath(Astro.url.pathname);
+---
+
+<header class="site-header">
+  <nav class="site-container header-inner" aria-label="Main navigation">
+    <a class="brand" href="/" aria-label={`${settings.name} home`}>
+      <span class="brand-mark" aria-hidden="true">FB</span>
+      <span class="brand-copy">
+        <span class="brand-name">{settings.name}</span>
+        <span class="brand-region">{settings.region}</span>
+      </span>
+    </a>
+
+    <details class="nav-details" open>
+      <summary class="nav-summary">Menu</summary>
+      <ul class="nav-list">
+        {navigation.map((item) => (
+          <li>
+            <a
+              class:list={["nav-link", item.href === "/visit" && "nav-cta button"]}
+              href={item.href}
+              aria-current={currentPath === normalizePath(item.href) ? "page" : undefined}
+            >
+              {item.href === "/visit" ? "Plan Your Visit" : item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  </nav>
+</header>
+
+<script>
+  const navigationDetails = document.querySelector<HTMLDetailsElement>(".nav-details");
+  if (navigationDetails && window.matchMedia("(max-width: 899px)").matches) {
+    navigationDetails.removeAttribute("open");
+  }
+</script>

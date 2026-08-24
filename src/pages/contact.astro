@@ -1,0 +1,17 @@
+---
+import ContactForm from "../components/ContactForm.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCmsContent } from "../lib/cms/content";
+
+const { settings } = await getCmsContent();
+---
+<BaseLayout title="Contact" description="Contact First Baptist Church of Laramie with a question or prayer request.">
+  <section class="placeholder-page section" aria-labelledby="contact-heading">
+    <div class="site-container">
+      <p class="eyebrow">Contact the church</p>
+      <h1 id="contact-heading">We’d be glad to hear from you.</h1>
+      <p class="reading-width">{settings.email} · {settings.phoneDisplay}</p>
+      <ContactForm />
+    </div>
+  </section>
+</BaseLayout>

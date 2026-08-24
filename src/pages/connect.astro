@@ -1,0 +1,10 @@
+---
+import FoundationPage from "../components/FoundationPage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCmsContent } from "../lib/cms/content";
+
+const { settings } = await getCmsContent();
+---
+<BaseLayout title="Connect" description="[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Connection opportunities will be confirmed before launch.">
+  <FoundationPage title="Connect" description="[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Connection opportunities will be confirmed before launch." settings={settings} />
+</BaseLayout>

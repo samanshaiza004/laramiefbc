@@ -1,0 +1,43 @@
+---
+import type { ChurchSettings } from "../lib/cms/types";
+import { navigation } from "../site-config";
+
+interface Props {
+  settings: ChurchSettings;
+}
+
+const { settings } = Astro.props;
+const contactEmailIsPlaceholder = settings.email.endsWith(".invalid");
+---
+
+<footer class="site-footer">
+  <div class="site-container footer-grid">
+    <div>
+      <p class="eyebrow" style="color: var(--color-gold)">First Baptist Church</p>
+      <h2 class="footer-heading">A church in Laramie.</h2>
+      <p class="footer-copy reading-width">{settings.footerDescription}</p>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Plan a visit</h2>
+      <ul class="footer-list">
+        <li>{settings.address.street}</li>
+        <li>{settings.address.locality}, {settings.address.region} {settings.address.postalCode}</li>
+        {settings.services.map((service) => <li>{service.label}: {service.time}</li>)}
+        <li><a href={settings.directionsUrl}>Get directions</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Stay in touch</h2>
+      <ul class="footer-list">
+        {settings.phoneHref ? <li><a href={`tel:${settings.phoneHref}`}>{settings.phoneDisplay}</a></li> : <li>{settings.phoneDisplay}</li>}
+        {contactEmailIsPlaceholder ? <li>{settings.email}</li> : <li><a href={`mailto:${settings.email}`}>{settings.email}</a></li>}
+        {navigation.filter((item) => item.href !== "/").slice(0, 4).map((item) => <li><a href={item.href}>{item.href === "/visit" ? "Plan Your Visit" : item.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="site-container footer-bottom">
+    <p>© {new Date().getFullYear()} {settings.name}. Website foundation in progress.</p>
+  </div>
+</footer>

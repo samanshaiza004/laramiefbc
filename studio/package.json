@@ -1,0 +1,25 @@
+{
+  "name": "first-baptist-laramie-studio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "check": "tsc --noEmit",
+    "deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "@sanity/icons": "^3.7.0",
+    "@sanity/vision": "^4.22.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sanity": "^4.22.0",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "typescript": "^5.9.0"
+  }
+}

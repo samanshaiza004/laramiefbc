@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>First Baptist Church of Laramie</title>
+  <rect width="64" height="64" fill="#17222a"/>
+  <path d="M32 10 52 26v26H12V26z" fill="none" stroke="#f4f0e8" stroke-width="3"/>
+  <path d="M32 15v27M22 25h20" stroke="#d5a14f" stroke-width="4"/>
+</svg>

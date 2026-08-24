@@ -1,0 +1,10 @@
+---
+import FoundationPage from "../components/FoundationPage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCmsContent } from "../lib/cms/content";
+
+const { aboutPage, settings } = await getCmsContent();
+---
+<BaseLayout title={aboutPage.title} description={aboutPage.description}>
+  <FoundationPage title={aboutPage.title} description={aboutPage.description} settings={settings} />
+</BaseLayout>

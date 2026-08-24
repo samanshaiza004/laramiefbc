@@ -1,0 +1,36 @@
+<manner-form data-error-focus="first">
+  <form class="contact-form" action="/.netlify/functions/contact" method="post">
+    <div class="form-error-summary" data-error-summary aria-live="polite" hidden tabindex="-1">
+      <h2>Check your message</h2>
+      <ul>
+        <li data-summary-for="name" hidden><a href="#name">Enter your name.</a></li>
+        <li data-summary-for="email" hidden><a href="#email">Enter a valid email address.</a></li>
+        <li data-summary-for="message" hidden><a href="#message">Write a message.</a></li>
+      </ul>
+    </div>
+
+    <p id="contact-form-note" class="field-help">This foundation form shows the authored validation contract. The production delivery endpoint will be enabled during the contact-security milestone.</p>
+
+    <label for="name">
+      Name
+      <input id="name" name="name" autocomplete="name" required maxlength="120" aria-describedby="name-error" />
+      <span id="name-error" class="field-error" data-error-for="name" hidden>Enter your name.</span>
+    </label>
+
+    <label for="email">
+      Email
+      <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="email-error" />
+      <span id="email-error" class="field-error" data-error-for="email" hidden>Enter a valid email address.</span>
+    </label>
+
+    <label for="message">
+      Message
+      <textarea id="message" name="message" required minlength="10" maxlength="4000" aria-describedby="message-error"></textarea>
+      <span id="message-error" class="field-error" data-error-for="message" hidden>Write at least 10 characters.</span>
+    </label>
+
+    <label class="visually-hidden" for="website">Leave this field empty</label>
+    <input id="website" name="website" tabindex="-1" autocomplete="off" class="visually-hidden" />
+    <button class="button" type="submit">Send a message</button>
+  </form>
+</manner-form>

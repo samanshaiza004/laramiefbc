@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  source: ImageMetadata | string;
+  alt: string;
+  width?: number;
+  height?: number;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "low" | "auto";
+  class?: string;
+}
+
+const { source, alt, width, height, loading = "lazy", fetchpriority, class: className } = Astro.props;
+---
+
+{typeof source === "string" ? (
+  <img src={source} alt={alt} width={width} height={height} loading={loading} fetchpriority={fetchpriority} class={className} />
+) : (
+  <Image src={source} alt={alt} width={width} height={height} loading={loading} fetchpriority={fetchpriority} class={className} />
+)}

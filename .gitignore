@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+studio/.sanity/
+studio/dist/
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+.DS_Store

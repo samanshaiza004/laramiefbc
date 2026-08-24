@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#17222a"/>
+  <path d="M0 508h1200v122H0z" fill="#d5a14f"/>
+  <path d="M90 102h1020M90 126h1020" stroke="#f4f0e8" stroke-width="6" opacity=".85"/>
+  <text x="90" y="278" fill="#f4f0e8" font-family="Georgia, serif" font-size="86">First Baptist Church</text>
+  <text x="94" y="372" fill="#f4f0e8" font-family="Arial, sans-serif" font-size="48" letter-spacing="8">LARAMIE, WYOMING</text>
+  <text x="94" y="566" fill="#17222a" font-family="Arial, sans-serif" font-size="28" letter-spacing="4">A LOCAL CHURCH FOR THE WHOLE COMMUNITY</text>
+</svg>
