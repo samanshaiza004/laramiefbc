@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test.describe("M1 foundation", () => {
+test.describe("M2 homepage", () => {
   test("renders the skip link and primary CTAs", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("main#main-content")).toBeVisible();
@@ -47,7 +47,15 @@ test.describe("M1 foundation", () => {
     await expect(page.getByText("Christ’s love — in both word and deed", { exact: false }).first()).toBeVisible();
   });
 
-  test("has no critical axe violations on the foundation homepage", async ({ page }) => {
+  test("puts newcomer information and service navigation in the homepage hierarchy", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: "A church with room for your life.", level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Start here.", level: 2 })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Get directions" }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: "Who we are Our story, beliefs, and the values that shape life together." })).toBeVisible();
+  });
+
+  test("has no critical axe violations on the homepage", async ({ page }) => {
     await page.goto("/");
     const results = await new AxeBuilder({ page }).analyze();
     expect(results.violations).toEqual([]);

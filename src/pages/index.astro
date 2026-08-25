@@ -6,42 +6,147 @@ const { aboutPage, homepage, settings } = await getCmsContent();
 ---
 
 <BaseLayout title={homepage.title} description={homepage.description}>
-  <section class="foundation-hero section">
-    <div class="site-container">
-      <p class="eyebrow">Laramie, Wyoming</p>
-      <h1 class="display-heading">First Baptist Church</h1>
-      <p class="foundation-hero-copy">{aboutPage.mission}</p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a class="button button-on-dark" href="/visit">Plan Your Visit</a>
-        <a class="button button-secondary" href="/sermons">Watch Latest Sermon</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="service-strip" aria-labelledby="service-heading">
-    <div class="site-container service-strip-grid">
-      <div>
-        <p class="eyebrow" id="service-heading">Sunday information</p>
-        <p class="m-0 max-w-xl">Service times and location will be published here only after church leadership verifies them.</p>
-      </div>
-      {settings.services.map((service) => (
-        <div class="service-strip-item">
-          <p class="service-strip-label">{service.label}</p>
-          <p class="service-strip-time">{service.day} · {service.time}</p>
-          <p class="m-0 text-sm">{service.notes}</p>
+  <section class="home-hero">
+    <div class="site-container home-hero-grid">
+      <div class="home-hero-copy">
+        <p class="eyebrow">First Baptist Church · Laramie, Wyoming</p>
+        <h1 class="display-heading">A church with room for your life.</h1>
+        <p class="home-hero-mission">{aboutPage.mission}</p>
+        <div class="home-hero-actions">
+          <a class="button button-on-dark" href="/visit">Plan Your Visit</a>
+          <a class="button button-secondary" href="/sermons">Watch Latest Sermon</a>
         </div>
-      ))}
+      </div>
+      <figure class="photo-placeholder photo-placeholder-hero">
+        <div class="photo-placeholder-mark" aria-hidden="true">FB</div>
+        <figcaption>Approved church or congregation photography will live here.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="next-heading">
+  <section class="home-service-band" aria-labelledby="service-heading">
+    <div class="site-container home-service-grid">
+      <div class="home-service-intro">
+        <p class="eyebrow" id="service-heading">Sunday information</p>
+        <h2>Start here.</h2>
+        <p>Come for worship, conversation, and a community learning to follow Jesus together.</p>
+      </div>
+      <div class="home-service-times">
+        {settings.services.map((service) => (
+          <div class="home-service-time">
+            <p class="home-service-label">{service.label}</p>
+            <p class="home-service-value">{service.day} <span>·</span> {service.time}</p>
+            <p class="home-service-note">{service.notes}</p>
+          </div>
+        ))}
+      </div>
+      <address class="home-service-address">
+        <span class="home-service-address-label">Find us</span>
+        <span>{settings.address.street}</span>
+        <span>{settings.address.locality}, {settings.address.region} {settings.address.postalCode}</span>
+        <a class="text-link" href={settings.directionsUrl}>Get directions <span aria-hidden="true">↗</span></a>
+      </address>
+    </div>
+  </section>
+
+  <section class="section home-welcome" aria-labelledby="welcome-heading">
+    <div class="site-container home-welcome-grid">
+      <div class="home-welcome-copy">
+        <p class="eyebrow">New here?</p>
+        <h2 class="section-heading" id="welcome-heading">You don’t have to know the words before you walk in.</h2>
+        <p class="home-lead">If you are looking for a church in Laramie, start with a question, a Sunday, or a conversation. We want your first visit to feel clear and human.</p>
+        <a class="text-link home-arrow-link" href="/visit">Plan your visit <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="photo-placeholder photo-placeholder-welcome">
+        <div class="photo-placeholder-lines" aria-hidden="true"></div>
+        <figcaption>A candid welcome or fellowship photograph will be added after approval.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="home-pathways section" aria-labelledby="pathways-heading">
     <div class="site-container">
-      <p class="eyebrow">Rooted in Laramie</p>
-      <h2 class="section-heading" id="next-heading">A local church with a long memory.</h2>
-      <p class="reading-width mt-6 text-lg text-[var(--color-muted-foreground)]">{aboutPage.history[0].paragraphs[0]}</p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a class="button" href="/about">Who We Are</a>
-        <a class="button button-secondary" href="/contact">Contact the Church</a>
+      <div class="home-section-intro">
+        <p class="eyebrow">Take a next step</p>
+        <h2 class="section-heading" id="pathways-heading">Find your way in.</h2>
+      </div>
+      <div class="pathway-list">
+        <a class="pathway-row" href="/about">
+          <span class="pathway-label">Who we are</span>
+          <span class="pathway-description">Our story, beliefs, and the values that shape life together.</span>
+          <span class="pathway-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="pathway-row" href="/connect">
+          <span class="pathway-label">Get connected</span>
+          <span class="pathway-description">Find a place to serve, ask a question, or begin a conversation.</span>
+          <span class="pathway-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="pathway-row" href="/sermons">
+          <span class="pathway-label">Listen first</span>
+          <span class="pathway-description">Explore the sermon archive when you want to hear the teaching before you arrive.</span>
+          <span class="pathway-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-media-section section" aria-labelledby="media-heading">
+    <div class="site-container home-media-grid">
+      <div class="home-media-art photo-placeholder photo-placeholder-wide">
+        <div class="photo-placeholder-sky" aria-hidden="true"></div>
+        <p>Community and Wyoming context photography will be added after image approval.</p>
+      </div>
+      <div class="home-media-copy">
+        <p class="eyebrow">A local church with a long memory</p>
+        <h2 class="section-heading" id="media-heading">Laramie has been part of our story from the beginning.</h2>
+        <p class="home-lead">{aboutPage.history[0].paragraphs[0]}</p>
+        <a class="text-link home-arrow-link" href="/about">Read our story <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-archives section" aria-labelledby="archives-heading">
+    <div class="site-container">
+      <div class="home-section-intro home-section-intro-wide">
+        <p class="eyebrow">Keep in touch</p>
+        <h2 class="section-heading" id="archives-heading">There is more to discover.</h2>
+      </div>
+      <div class="archive-list">
+        <a class="archive-row" href="/sermons">
+          <span>
+            <span class="archive-kicker">Sermons</span>
+            <span class="archive-title">Hear the teaching before you arrive.</span>
+          </span>
+          <span class="archive-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="archive-row" href="/events">
+          <span>
+            <span class="archive-kicker">Events</span>
+            <span class="archive-title">Make room for community.</span>
+          </span>
+          <span class="archive-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="archive-row" href="/contact">
+          <span>
+            <span class="archive-kicker">Questions</span>
+            <span class="archive-title">Contact the church.</span>
+          </span>
+          <span class="archive-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-visit-cta section" aria-labelledby="visit-cta-heading">
+    <div class="site-container home-visit-cta-inner">
+      <div>
+        <p class="eyebrow">Plan a Sunday</p>
+        <h2 class="section-heading" id="visit-cta-heading">We’ll leave the light on.</h2>
+      </div>
+      <div class="home-visit-details">
+        <p>{settings.address.street}<br />{settings.address.locality}, {settings.address.region} {settings.address.postalCode}</p>
+        <p>{settings.services[0]?.day} · {settings.services[0]?.time}</p>
+        <a class="button button-on-dark" href="/visit">Plan Your Visit</a>
       </div>
     </div>
   </section>

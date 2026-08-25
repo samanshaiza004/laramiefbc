@@ -54,7 +54,7 @@ const displayTitle = `${title} | ${settings.name}`;
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    {source === "local" && <div class="foundation-notice" role="status">Foundation preview: synthetic content is shown here for development only.</div>}
+    {source === "local" && <div class="foundation-notice" role="status">Visual preview: synthetic content is shown here for development only.</div>}
     <Header settings={settings} />
     <main id="main-content" tabindex="-1"><slot /></main>
     <Footer settings={settings} />

@@ -1,6 +1,6 @@
 # First Baptist Church of Laramie
 
-An Astro 7 static site foundation for First Baptist Church of Laramie, Wyoming.
+An Astro 7 static site for First Baptist Church of Laramie, Wyoming.
 
 ## Development
 
@@ -34,4 +34,4 @@ The separate Studio in `studio/` is deployed to Sanity and is not embedded in th
 
 ## Current milestone
 
-M1 establishes the CMS boundary, canonical URL authority, shared layout, accessibility primitives, design tokens, and browser quality gates. The homepage is intentionally a foundation preview until M2's visual gate is approved.
+M2 establishes the homepage visual proof: typography, palette, editorial section rhythm, newcomer hierarchy, service information band, responsive composition, and accessibility baseline. Photography, service times, and other mutable church facts remain clearly marked until verified.
