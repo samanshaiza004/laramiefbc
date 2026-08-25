@@ -12,6 +12,8 @@ describe("CMS source boundary", () => {
     expect(content.settings.services.length).toBeGreaterThan(0);
     expect(content.settings.address.locality).toBe("Laramie");
     expect(content.aboutPage.mission).toContain("Christ’s love — in both word and deed");
+    expect(content.aboutPage.history[0].paragraphs[0]).toStartWith("Laramie sprang up alongside the Union Pacific Railroad in 1868.");
+    expect(content.aboutPage.history[0].paragraphs[0]).not.toContain("arriving alongside the Union Pacific Railroad in 1868");
     expect(content.aboutPage.values.map((value) => value.heading)).toEqual(expect.arrayContaining(["Biblical Truth", "Love Our Neighbors"]));
     expect(content.aboutPage.beliefs.find((belief) => belief.heading === "Jesus")?.paragraphs[0]).toContain("today — ascended");
     expect(content.aboutPage.values.find((value) => value.heading === "Generosity")?.paragraphs[0]).toContain("life — extending");

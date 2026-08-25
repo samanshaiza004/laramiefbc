@@ -7,28 +7,29 @@ const { aboutPage, homepage, settings } = await getCmsContent();
 
 <BaseLayout title={homepage.title} description={homepage.description}>
   <section class="home-hero">
-    <div class="site-container home-hero-grid">
-      <div class="home-hero-copy">
-        <p class="eyebrow">First Baptist Church · Laramie, Wyoming</p>
-        <h1 class="display-heading">A church with room for your life.</h1>
-        <p class="home-hero-mission">{aboutPage.mission}</p>
+    <div class="site-container home-hero-stage">
+      <div class="home-hero-heading">
+        <p class="home-hero-location">First Baptist Church · Laramie, Wyoming</p>
+        <h1 class="home-hero-title"><span>First Baptist</span><span>Church</span></h1>
+      </div>
+      <figure class="photo-placeholder photo-placeholder-hero">
+        <figcaption>Approved church or congregation photography will live here.</figcaption>
+      </figure>
+      <div class="home-hero-claim">
+        <p>{aboutPage.mission}</p>
         <div class="home-hero-actions">
           <a class="button button-on-dark" href="/visit">Plan Your Visit</a>
           <a class="button button-secondary" href="/sermons">Watch Latest Sermon</a>
         </div>
       </div>
-      <figure class="photo-placeholder photo-placeholder-hero">
-        <div class="photo-placeholder-mark" aria-hidden="true">FB</div>
-        <figcaption>Approved church or congregation photography will live here.</figcaption>
-      </figure>
     </div>
   </section>
 
   <section class="home-service-band" aria-labelledby="service-heading">
     <div class="site-container home-service-grid">
       <div class="home-service-intro">
-        <p class="eyebrow" id="service-heading">Sunday information</p>
-        <h2>Start here.</h2>
+        <p class="eyebrow" id="service-heading">At First Baptist</p>
+        <h2>Sundays</h2>
         <p>Come for worship, conversation, and a community learning to follow Jesus together.</p>
       </div>
       <div class="home-service-times">
@@ -58,7 +59,6 @@ const { aboutPage, homepage, settings } = await getCmsContent();
         <a class="text-link home-arrow-link" href="/visit">Plan your visit <span aria-hidden="true">↗</span></a>
       </div>
       <figure class="photo-placeholder photo-placeholder-welcome">
-        <div class="photo-placeholder-lines" aria-hidden="true"></div>
         <figcaption>A candid welcome or fellowship photograph will be added after approval.</figcaption>
       </figure>
     </div>
@@ -93,7 +93,6 @@ const { aboutPage, homepage, settings } = await getCmsContent();
   <section class="home-media-section section" aria-labelledby="media-heading">
     <div class="site-container home-media-grid">
       <div class="home-media-art photo-placeholder photo-placeholder-wide">
-        <div class="photo-placeholder-sky" aria-hidden="true"></div>
         <p>Community and Wyoming context photography will be added after image approval.</p>
       </div>
       <div class="home-media-copy">
@@ -111,29 +110,29 @@ const { aboutPage, homepage, settings } = await getCmsContent();
         <p class="eyebrow">Keep in touch</p>
         <h2 class="section-heading" id="archives-heading">There is more to discover.</h2>
       </div>
-      <div class="archive-list">
-        <a class="archive-row" href="/sermons">
+      <nav class="archive-links" aria-label="Explore more">
+        <a class="archive-link" href="/sermons">
           <span>
             <span class="archive-kicker">Sermons</span>
             <span class="archive-title">Hear the teaching before you arrive.</span>
           </span>
           <span class="archive-arrow" aria-hidden="true">↗</span>
         </a>
-        <a class="archive-row" href="/events">
+        <a class="archive-link" href="/events">
           <span>
             <span class="archive-kicker">Events</span>
             <span class="archive-title">Make room for community.</span>
           </span>
           <span class="archive-arrow" aria-hidden="true">↗</span>
         </a>
-        <a class="archive-row" href="/contact">
+        <a class="archive-link" href="/contact">
           <span>
             <span class="archive-kicker">Questions</span>
             <span class="archive-title">Contact the church.</span>
           </span>
           <span class="archive-arrow" aria-hidden="true">↗</span>
         </a>
-      </div>
+      </nav>
     </div>
   </section>
 

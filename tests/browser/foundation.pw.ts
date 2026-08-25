@@ -49,8 +49,8 @@ test.describe("M2 homepage", () => {
 
   test("puts newcomer information and service navigation in the homepage hierarchy", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "A church with room for your life.", level: 1 })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Start here.", level: 2 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "First Baptist Church", level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Sundays", level: 2 })).toBeVisible();
     await expect(page.getByRole("link", { name: "Get directions" }).first()).toBeVisible();
     await expect(page.getByRole("link", { name: "Who we are Our story, beliefs, and the values that shape life together." })).toBeVisible();
   });

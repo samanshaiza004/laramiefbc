@@ -56,8 +56,8 @@ export const localContent: CmsContent = {
       {
         heading: "1870: Founding on the Frontier",
         paragraphs: [
-          "First Baptist Church of Laramie was established during the city’s earliest days, arriving alongside the Union Pacific Railroad in 1868. As Laramie grew from an open prairie into a bustling railroad hub, the early settlers sought a foundation of faith to steady their lives amidst the uncertainty of frontier life.",
-          "In January 1870, a visiting Baptist superintendent organized local believers for worship, officially founding the church. By May, construction began on the congregation’s first building at Fourth Street and Grand Avenue on land granted by the Union Pacific Railroad. The sanctuary was dedicated in the fall of 1870 under the leadership of Rev. D. J. Pierce. Together with his wife, Marietta, Rev. Pierce also established the Wyoming Institute, marking the beginning of higher education in Laramie.",
+          "Laramie sprang up alongside the Union Pacific Railroad in 1868. In January 1870, a visiting Baptist superintendent organized local believers for worship, officially founding First Baptist Church.",
+          "By May, construction began on the congregation’s first building at Fourth Street and Grand Avenue on land granted by the Union Pacific Railroad. The sanctuary was dedicated in the fall of 1870 under the leadership of Rev. D. J. Pierce. Together with his wife, Marietta, Rev. Pierce also established the Wyoming Institute, marking the beginning of higher education in Laramie.",
         ],
       },
       {
@@ -79,56 +79,56 @@ export const localContent: CmsContent = {
       {
         heading: "The Bible",
         paragraphs: [
-          "We believe the Scriptures of the Old and New Testaments are inspired by God and given to reveal His heart, His character, and His mission. Through the Holy Spirit, God spoke through human authors so that His Word would guide, correct, and shape His people. The Bible stands as our final authority in all matters of faith and life, and through it God equips us for every good work. (2 Timothy 3:16–17; 2 Peter 1:21)",
+          "We believe the Scriptures of the Old and New Testaments are inspired by God and given to reveal His heart, His character, and His mission (2 Tim. 3:16–17; 2 Pet. 1:21). Through the Holy Spirit, God spoke through human authors so that His Word would guide, correct, and shape His people. The Bible stands as our final authority in all matters of faith and life, and through it God equips us for every good work (Ps. 119:105; John 17:17; Heb. 4:12).",
         ],
       },
       {
         heading: "The Trinity",
         paragraphs: [
-          "We believe in one God who has eternally existed as Father, Son, and Holy Spirit. These three persons share the same divine nature and glory, and each carries out distinct yet perfectly unified work in creation, redemption, and the life of the Church. (Matthew 28:19)",
+          "We believe in one God who has eternally existed as Father, Son, and Holy Spirit (Deut. 6:4; Matt. 28:19). These three persons share the same divine nature and glory, and each carries out distinct yet perfectly unified work in creation, redemption, and the life of the Church (John 1:1–3; Acts 5:3–4; 2 Cor. 13:14).",
         ],
       },
       {
         heading: "God the Father",
         paragraphs: [
-          "We believe God the Father is eternal, holy, and personal. He created all things and sustains every breath of life. His character is perfect in wisdom, justice, power, goodness, and love. He cares deeply for humanity, hears the prayers of His people, and calls us into faithful obedience. Through the saving work of Jesus Christ, the Father rescues us from sin and death and welcomes us into His family. (Acts 17:24–28)",
+          "We believe God the Father is eternal, holy, and personal (Matt. 6:9). He created all things and sustains every breath of life (Acts 17:24–28). His character is perfect in wisdom, justice, power, goodness, and love (Ps. 103:13; James 1:17). He cares deeply for humanity, hears the prayers of His people, and calls us into faithful obedience. Through the saving work of Jesus Christ, the Father rescues us from sin and death and welcomes us into His family (John 3:16).",
         ],
       },
       {
         heading: "Jesus",
         paragraphs: [
-          "We confess that Jesus Christ is fully God and fully human, sharing the same divine nature as the Father and the Holy Spirit. Conceived by the Holy Spirit and born of the virgin Mary, He entered our world to reveal God’s heart and accomplish our redemption. Through His sinless life, His sacrificial death on the cross, and His bodily resurrection, He opened the way for all people to be saved from sin and restored to God. This salvation becomes ours as we place our faith in Jesus as Lord and enter the family of God. We believe Jesus is alive today — ascended into Heaven, seated at the right hand of the Father, interceding as our High Priest — and that He will return in glory to judge the living and the dead. (John 1:1–3; Colossians 1:15–20)",
+          "We confess that Jesus Christ is fully God and fully human, sharing the same divine nature as the Father and the Holy Spirit (John 1:1–3; Col. 1:15–20). Conceived by the Holy Spirit and born of the virgin Mary, He entered our world to reveal God’s heart and accomplish our redemption (Phil. 2:5–11; Heb. 4:15). Through His sinless life, His sacrificial death on the cross, and His bodily resurrection, He opened the way for all people to be saved from sin and restored to God. This salvation becomes ours as we place our faith in Jesus as Lord and enter the family of God (Rom. 3:24–25; 1 Cor. 15:3–4). We believe Jesus is alive today — ascended into Heaven, seated at the right hand of the Father, interceding as our High Priest — and that He will return in glory to judge the living and the dead (Acts 1:9–11).",
         ],
       },
       {
         heading: "Holy Spirit",
         paragraphs: [
-          "We believe the Holy Spirit shares the same divine nature as the Father and the Son. The Spirit is present and active in the world today — our Helper, Advocate, Teacher, and Guide. The Spirit dwells within God’s people, giving new life, shaping us into holiness, and empowering us to live out God’s mission. Through the Spirit’s presence and gifts, believers are strengthened to proclaim the Gospel of Jesus and to serve in the work God has entrusted to the Church. (John 14:16–17, 26; 1 Corinthians 2:10–11)",
+          "We believe the Holy Spirit shares the same divine nature as the Father and the Son (1 Cor. 2:10–11). The Spirit is present and active in the world today — our Helper, Advocate, Teacher, and Guide (John 14:16–17, 26). The Spirit dwells within God’s people, giving new life, shaping us into holiness (Rom. 8:9–11; Gal. 5:22–23), and empowering us to live out God’s mission (Acts 1:8). Through the Spirit’s presence and gifts, believers are strengthened to proclaim the Gospel of Jesus and to serve in the work God has entrusted to the Church (1 Cor. 12:4–11).",
         ],
       },
       {
         heading: "Salvation",
         paragraphs: [
-          "We believe God’s mission centers on rescuing humanity from the power and consequences of sin. Scripture teaches that sin brings spiritual death and brokenness, and that apart from God’s intervention, we cannot free ourselves or heal the world. In His grace, God has acted through Jesus Christ to reconcile us to Himself. Through faith in Jesus as Lord, we are forgiven, restored to relationship with God, and made new. United with Christ, believers receive power over sin, are transformed into a new creation, and are promised eternal life. We trust that God will one day renew all things, bringing His people into a restored and perfect kingdom where sin and death are no more. (Ephesians 2:1–10; Colossians 1:21–23; 2 Corinthians 5:17–21; Revelation 21:1–4)",
+          "We believe God’s mission centers on rescuing humanity from the power and consequences of sin. Scripture teaches that sin brings spiritual death and brokenness, and that apart from God’s intervention, we cannot free ourselves or heal the world. In His grace, God has acted through Jesus Christ to reconcile us to Himself (Rom. 5:8; 2 Cor. 5:17–21; Col. 1:21–23). Through Jesus’ death and resurrection, and by faith in Jesus as Lord, we are forgiven, restored to relationship with God, and made new. United with Christ, believers receive power over sin, are transformed into a new creation, and are promised eternal life (John 3:16–18; Rom. 8:1–4). We trust that God will one day renew all things, bringing His people into a restored and perfect kingdom where sin and death are no more (Rev. 21:1–4).",
         ],
       },
       {
         heading: "The Church",
         paragraphs: [
-          "We believe the Church is the body of Christ, made up of all who confess Jesus as Lord. Christ Himself is the head of the Church, and His authority guides and shapes our life together. Local congregations gather as communities of faith to worship, proclaim the Gospel, grow in discipleship, and serve the world in His name. As part of our shared witness, we practice two ordinances given by Jesus: baptism of believers by immersion and the Lord’s Supper, which reminds us of His saving work and unites us in hope. (1 Corinthians 12:12–13)",
+          "We believe the Church is the body of Christ, made up of all who confess Jesus as Lord (1 Cor. 12:12–13). Christ Himself is the head of the Church, and His authority guides and shapes our life together (Eph. 1:22–23; Col. 1:18). Local congregations gather as communities of faith to worship, proclaim the Gospel, grow in discipleship, and serve the world in His name. This pattern reflects the life of the early church. It devoted itself to the apostles’ teaching, fellowship, prayer, and joyful witness (Acts 2:42–47; Heb. 10:24–25; Matt. 28:19–20). As part of our shared witness, we practice two ordinances given by Jesus: baptism of believers by immersion and the Lord’s Supper, which reminds us of His saving work and unites us in hope (Matt. 28:19; Acts 8:36–38; Luke 22:19–20; 1 Cor. 11:23–26).",
         ],
       },
       {
         heading: "Christian Conduct",
         paragraphs: [
-          "We believe God calls all people to live in obedience to Him. Our actions cannot free us from sin, but through Jesus Christ we have been freed from sin’s power and invited into a new way of life. By confessing Jesus as Lord, we acknowledge that His ways are better than our own, and we seek to follow Him with faithfulness. Though we fall short daily, we trust the Holy Spirit to transform us and shape our character.",
-          "As followers of Jesus, we strive to be wise and generous stewards of the money, resources, and possessions entrusted to us. We seek the flourishing of life, stand against all forms of abuse, and pursue holiness in our relationships and sexual expression. In all things, we aim to love our neighbors as we love God — living with compassion, integrity, and self-giving generosity. Such a life bears witness to the hope of the Gospel. (1 John 1:5–2:2)",
+          "We believe God calls all people to live in obedience to Him, empowered by the Holy Spirit (Gal. 5:16–26; Rom. 12:1–2). Our actions cannot free us from sin, but through Jesus Christ we have been freed from sin’s power and invited into a new way of life. By confessing Jesus as Lord, we acknowledge that His ways are better than our own, and we seek to follow Him with faithfulness. Though we fall short daily, we trust the Holy Spirit to transform us and shape our character (1 Pet. 1:15–16; Mic. 6:8).",
+          "As followers of Jesus, we strive to be wise and generous stewards of the money, resources, and possessions entrusted to us. We seek the flourishing of life, stand against all forms of abuse, and pursue holiness in our relationships and sexual expression. In all things, we aim to love our neighbors as we love God — living with compassion, integrity, and self-giving generosity. Such a life bears witness to the hope of the Gospel (Matt. 22:37–40; 1 John 1:5–2:2).",
         ],
       },
       {
         heading: "The Second Coming",
         paragraphs: [
-          "We believe Jesus Christ will return, and His coming is certain. When He appears, the dead will be raised bodily, and every person will stand before Him in judgment. In His grace, Jesus will welcome into His eternal kingdom all who have been made righteous through faith in His lordship. Those who reject Him will face separation from God in accordance with His perfect justice. The return of Christ will bring the fullness of God’s reign and the restoration of all things. (1 Corinthians 15:21–28)",
+          "We believe Jesus Christ will return, and His coming is certain (Acts 1:11; Rev. 22:12). When He appears, the dead will be raised bodily, and every person will stand before Him in judgment (Matt. 24:30–31; 1 Thess. 4:13–18). In His grace, Jesus will welcome into His eternal kingdom all who have been made righteous through faith in His lordship. Those who reject Him will face separation from God in accordance with His perfect justice (2 Thess. 1:7–10). The return of Christ will bring the fullness of God’s reign and the restoration of all things (1 Cor. 15:21–28).",
         ],
       },
     ],

@@ -9,9 +9,10 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 
 ## Received website draft
 
-- Mission, history, beliefs, and values prose supplied in `Church WEBSITE.docx` has been structured into the local fixture and About page.
-- Editorial normalization applied: em dashes replace the draft's hyphen artifacts, and the value headings are “Biblical Truth” and “Love Our Neighbors.”
-- The supplied draft is not yet treated as independently verified production fact. Leadership must approve the final wording and confirm historical, leadership, and location claims before launch.
+- Mission, history, beliefs, and values prose supplied for the website has been structured into the local fixture and About page.
+- Final beliefs copy supplied by church leadership has been editorially normalized: citation spacing and abbreviations are consistent, em dashes replace draft hyphen artifacts, and the value headings are “Biblical Truth” and “Love Our Neighbors.”
+- The history opening now distinguishes Laramie’s 1868 founding from First Baptist Church’s 1870 founding, per leadership direction.
+- The supplied copy is ready to migrate into Sanity, but production still requires confirming the published document, current leadership/location claims, and all mutable visitor information.
 
 ## Probable but unverified
 
