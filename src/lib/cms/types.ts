@@ -44,12 +44,24 @@ export interface PageContent {
   description: string;
 }
 
+export interface ContentSection {
+  heading: string;
+  paragraphs: string[];
+}
+
+export interface AboutPageContent extends PageContent {
+  mission: string;
+  history: ContentSection[];
+  beliefs: ContentSection[];
+  values: ContentSection[];
+}
+
 export interface CmsContent {
   source: CmsSource;
   settings: ChurchSettings;
   homepage: PageContent;
   visitPage: PageContent;
-  aboutPage: PageContent;
+  aboutPage: AboutPageContent;
   givingPage: PageContent;
 }
 

@@ -7,6 +7,12 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - Church name requested for this project: First Baptist Church of Laramie.
 - City and state requested for this project: Laramie, Wyoming.
 
+## Received website draft
+
+- Mission, history, beliefs, and values prose supplied in `Church WEBSITE.docx` has been structured into the local fixture and About page.
+- Editorial normalization applied: em dashes replace the draft's hyphen artifacts, and the value headings are “Biblical Truth” and “Love Our Neighbors.”
+- The supplied draft is not yet treated as independently verified production fact. Leadership must approve the final wording and confirm historical, leadership, and location claims before launch.
+
 ## Probable but unverified
 
 - Existing public references may contain an address, service schedule, leadership information, giving destination, or media links. Treat each as research only until church leadership confirms it.
@@ -21,7 +27,7 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - Time zone and seasonal schedule behavior, if any.
 - Parking, entrances, accessibility, childcare, nursery, children’s ministry, service length, dress expectations, communion, and baptism practices.
 - Current pastor, staff, elders/deacons, ministry leaders, and public biographies.
-- Beliefs, values, church history, mission statement, and approved wording.
+- Leadership approval of the supplied beliefs, values, church history, mission statement, and final public wording.
 - Sermon archive, YouTube channel, series names, speakers, dates, and media permissions.
 - Events, recurring ministry schedules, and cancellation/update process.
 - Giving provider, mailing instructions, in-person giving instructions, and approved financial wording.

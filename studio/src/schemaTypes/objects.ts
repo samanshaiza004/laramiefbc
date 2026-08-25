@@ -50,6 +50,21 @@ export const socialLink = defineType({
   ],
 });
 
+export const contentSection = defineType({
+  name: "contentSection",
+  title: "Content section",
+  type: "object",
+  fields: [
+    defineField({ name: "heading", type: "string", validation: (rule) => rule.required() }),
+    defineField({
+      name: "paragraphs",
+      type: "array",
+      of: [defineArrayMember({ type: "text" })],
+      validation: (rule) => rule.min(1),
+    }),
+  ],
+});
+
 export const pageReference = defineType({
   name: "pageReference",
   title: "Page reference",

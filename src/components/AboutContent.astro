@@ -1,0 +1,66 @@
+---
+import type { AboutPageContent } from "../lib/cms/types";
+
+interface Props {
+  aboutPage: AboutPageContent;
+}
+
+const { aboutPage } = Astro.props;
+---
+
+<header class="about-hero section">
+  <div class="site-container">
+    <p class="eyebrow">About us</p>
+    <h1 class="display-heading">{aboutPage.title}</h1>
+    <p class="mission-callout">{aboutPage.mission}</p>
+  </div>
+</header>
+
+<div class="about-content section">
+  <section class="site-container" aria-labelledby="history-heading">
+    <div class="about-section-header">
+      <p class="eyebrow">Our history</p>
+      <h2 class="section-heading" id="history-heading">Over 155 years of faithful service</h2>
+    </div>
+    <div class="about-copy mt-12">
+      {aboutPage.history.map((section) => (
+        <section aria-labelledby={`history-${section.heading.toLowerCase().replaceAll(" ", "-")}`}>
+          <h3 id={`history-${section.heading.toLowerCase().replaceAll(" ", "-")}`}>{section.heading}</h3>
+          {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <section class="site-container" aria-labelledby="beliefs-heading">
+    <div class="about-section-header">
+      <p class="eyebrow">What we believe</p>
+      <h2 class="section-heading" id="beliefs-heading">Biblical faith, lived together.</h2>
+    </div>
+    <div class="about-copy mt-12">
+      {aboutPage.beliefs.map((section) => (
+        <section aria-labelledby={`belief-${section.heading.toLowerCase().replaceAll(" ", "-")}`}>
+          <h3 id={`belief-${section.heading.toLowerCase().replaceAll(" ", "-")}`}>{section.heading}</h3>
+          {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <section class="site-container" aria-labelledby="values-heading">
+    <div class="about-section-header">
+      <p class="eyebrow">Our values</p>
+      <h2 class="section-heading" id="values-heading">Simple convictions for everyday life.</h2>
+    </div>
+    <div class="values-list mt-12">
+      {aboutPage.values.map((value) => (
+        <section class="value-row" aria-labelledby={`value-${value.heading.toLowerCase().replaceAll(" ", "-")}`}>
+          <h3 id={`value-${value.heading.toLowerCase().replaceAll(" ", "-")}`}>{value.heading}</h3>
+          <div>
+            {value.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </section>
+      ))}
+    </div>
+  </section>
+</div>

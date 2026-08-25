@@ -1,5 +1,5 @@
 import { announcement, event, ministry, person, sermon, sermonSeries } from "./collections";
-import { address, pageReference, richText, seo, serviceTime, socialLink } from "./objects";
+import { address, contentSection, pageReference, richText, seo, serviceTime, socialLink } from "./objects";
 import { aboutPage, givingPage, homePage, siteSettings, visitPage } from "./singletons";
 
 export const schemaTypes = [
@@ -18,6 +18,7 @@ export const schemaTypes = [
   address,
   serviceTime,
   socialLink,
+  contentSection,
   pageReference,
   richText,
 ];

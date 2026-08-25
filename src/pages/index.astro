@@ -2,15 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCmsContent } from "../lib/cms/content";
 
-const { homepage, settings } = await getCmsContent();
+const { aboutPage, homepage, settings } = await getCmsContent();
 ---
 
 <BaseLayout title={homepage.title} description={homepage.description}>
   <section class="foundation-hero section">
     <div class="site-container">
-      <p class="eyebrow">M1 foundation preview</p>
-      <h1 class="display-heading">First Baptist Church of Laramie</h1>
-      <p class="foundation-hero-copy">The shared site foundation is ready for the visual homepage proof: a clear, local, welcoming website for people looking for a church in Laramie.</p>
+      <p class="eyebrow">Laramie, Wyoming</p>
+      <h1 class="display-heading">First Baptist Church</h1>
+      <p class="foundation-hero-copy">{aboutPage.mission}</p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a class="button button-on-dark" href="/visit">Plan Your Visit</a>
         <a class="button button-secondary" href="/sermons">Watch Latest Sermon</a>
@@ -36,9 +36,9 @@ const { homepage, settings } = await getCmsContent();
 
   <section class="section" aria-labelledby="next-heading">
     <div class="site-container">
-      <p class="eyebrow">What comes next</p>
-      <h2 class="section-heading" id="next-heading">A careful welcome is being built.</h2>
-      <p class="reading-width mt-6 text-lg text-[var(--color-muted-foreground)]">M2 will turn this foundation into the finished homepage using verified church photography, practical Sunday information, and an editorial visual system tuned to Laramie.</p>
+      <p class="eyebrow">Rooted in Laramie</p>
+      <h2 class="section-heading" id="next-heading">A local church with a long memory.</h2>
+      <p class="reading-width mt-6 text-lg text-[var(--color-muted-foreground)]">{aboutPage.history[0].paragraphs[0]}</p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a class="button" href="/about">Who We Are</a>
         <a class="button button-secondary" href="/contact">Contact the Church</a>

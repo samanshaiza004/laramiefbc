@@ -44,12 +44,24 @@ const pageContentSchema = z.object({
   description: z.string().min(1),
 }).strict();
 
+const contentSectionSchema = z.object({
+  heading: z.string().min(1),
+  paragraphs: z.array(z.string().min(1)).min(1),
+}).strict();
+
+const aboutPageSchema = pageContentSchema.extend({
+  mission: z.string().min(1),
+  history: z.array(contentSectionSchema).min(1),
+  beliefs: z.array(contentSectionSchema).min(1),
+  values: z.array(contentSectionSchema).min(1),
+}).strict();
+
 export const cmsContentSchema = z.object({
   source: z.enum(["local", "sanity"]),
   settings: churchSettingsSchema,
   homepage: pageContentSchema,
   visitPage: pageContentSchema,
-  aboutPage: pageContentSchema,
+  aboutPage: aboutPageSchema,
   givingPage: pageContentSchema,
 }).strict();
 

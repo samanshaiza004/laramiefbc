@@ -41,5 +41,35 @@ function pageSingleton(name: string, title: string, icon = DocumentIcon) {
 
 export const homePage = pageSingleton("homePage", "Homepage", HomeIcon);
 export const visitPage = pageSingleton("visitPage", "Visit page");
-export const aboutPage = pageSingleton("aboutPage", "About page");
 export const givingPage = pageSingleton("givingPage", "Giving page");
+
+export const aboutPage = defineType({
+  name: "aboutPage",
+  title: "About page",
+  icon: DocumentIcon,
+  type: "document",
+  fields: [
+    defineField({ name: "title", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "description", type: "text", rows: 3, validation: (rule) => rule.required() }),
+    defineField({ name: "mission", type: "text", rows: 3, validation: (rule) => rule.required() }),
+    defineField({
+      name: "history",
+      type: "array",
+      of: [defineArrayMember({ type: "contentSection" })],
+      validation: (rule) => rule.min(1),
+    }),
+    defineField({
+      name: "beliefs",
+      type: "array",
+      of: [defineArrayMember({ type: "contentSection" })],
+      validation: (rule) => rule.min(1),
+    }),
+    defineField({
+      name: "values",
+      type: "array",
+      of: [defineArrayMember({ type: "contentSection" })],
+      validation: (rule) => rule.min(1),
+    }),
+    seoField,
+  ],
+});

@@ -40,6 +40,13 @@ test.describe("M1 foundation", () => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   });
 
+  test("renders the supplied About content as semantic sections", async ({ page }) => {
+    await page.goto("/about");
+    await expect(page.getByRole("heading", { name: "Biblical Truth", level: 3 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Love Our Neighbors", level: 3 })).toBeVisible();
+    await expect(page.getByText("Christ’s love — in both word and deed", { exact: false }).first()).toBeVisible();
+  });
+
   test("has no critical axe violations on the foundation homepage", async ({ page }) => {
     await page.goto("/");
     const results = await new AxeBuilder({ page }).analyze();

@@ -111,6 +111,21 @@ a, button, input, textarea, select, summary { outline-offset: 4px; }
 .button-secondary:hover { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-paper); }
 .foundation-hero .button-secondary { border-color: rgba(244, 240, 232, .72); color: var(--color-paper); }
 .foundation-hero .button-secondary:hover { border-color: var(--color-gold); background: var(--color-gold); color: var(--color-ink); }
+.about-hero { background: var(--color-ink); color: var(--color-paper); }
+.about-hero .eyebrow { color: var(--color-gold); }
+.about-hero .display-heading { max-width: 12ch; margin-bottom: 2.5rem; }
+.mission-callout { max-width: 52rem; border-left: 3px solid var(--color-gold); padding-left: 1.25rem; color: rgba(244, 240, 232, .84); font-family: var(--font-display); font-size: clamp(1.45rem, 3vw, 2.4rem); line-height: 1.18; }
+.about-content { display: grid; gap: var(--section-space); }
+.about-section-header { max-width: 36rem; }
+.about-section-header p:last-child { color: var(--color-muted-foreground); font-size: 1.15rem; }
+.about-copy { max-width: var(--reading-width); }
+.about-copy h3 { margin: 3rem 0 .8rem; font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2.15rem); font-weight: 400; line-height: 1; }
+.about-copy h3:first-child { margin-top: 0; }
+.about-copy p { margin: 0 0 1.35rem; color: var(--color-muted-foreground); font-size: 1.08rem; line-height: 1.8; }
+.values-list { border-top: var(--border-subtle); }
+.value-row { display: grid; gap: .8rem 2rem; border-bottom: var(--border-subtle); padding-block: 1.5rem; }
+.value-row h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.35rem, 2.3vw, 2rem); font-weight: 400; line-height: 1.05; }
+.value-row p { margin: 0; color: var(--color-muted-foreground); line-height: 1.7; }
 .button-on-dark { border-color: var(--color-paper); background: var(--color-paper); color: var(--color-ink); }
 .button-on-dark:hover { border-color: var(--color-gold); background: var(--color-gold); color: var(--color-ink); }
 .text-link { font-weight: 700; text-decoration-thickness: 2px; }
@@ -172,6 +187,10 @@ a, button, input, textarea, select, summary { outline-offset: 4px; }
 @media (min-width: 700px) {
   .service-strip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; }
+}
+
+@media (min-width: 760px) {
+  .value-row { grid-template-columns: minmax(12rem, .65fr) minmax(0, 1fr); }
 }
 
 @media (max-width: 899px) {

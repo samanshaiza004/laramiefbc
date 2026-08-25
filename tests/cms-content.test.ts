@@ -11,6 +11,10 @@ describe("CMS source boundary", () => {
     expect(content.source).toBe("local");
     expect(content.settings.services.length).toBeGreaterThan(0);
     expect(content.settings.address.locality).toBe("Laramie");
+    expect(content.aboutPage.mission).toContain("Christ’s love — in both word and deed");
+    expect(content.aboutPage.values.map((value) => value.heading)).toEqual(expect.arrayContaining(["Biblical Truth", "Love Our Neighbors"]));
+    expect(content.aboutPage.beliefs.find((belief) => belief.heading === "Jesus")?.paragraphs[0]).toContain("today — ascended");
+    expect(content.aboutPage.values.find((value) => value.heading === "Generosity")?.paragraphs[0]).toContain("life — extending");
   });
 
   test("production cannot select local fixtures", () => {
