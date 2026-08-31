@@ -7,16 +7,17 @@ interface Props {
   alt: string;
   width?: number;
   height?: number;
+  sizes?: string;
   loading?: "eager" | "lazy";
   fetchpriority?: "high" | "low" | "auto";
   class?: string;
 }
 
-const { source, alt, width, height, loading = "lazy", fetchpriority, class: className } = Astro.props;
+const { source, alt, width, height, sizes, loading = "lazy", fetchpriority, class: className } = Astro.props;
 ---
 
 {typeof source === "string" ? (
-  <img src={source} alt={alt} width={width} height={height} loading={loading} fetchpriority={fetchpriority} class={className} />
+  <img src={source} alt={alt} width={width} height={height} sizes={sizes} loading={loading} fetchpriority={fetchpriority} class={className} />
 ) : (
-  <Image src={source} alt={alt} width={width} height={height} loading={loading} fetchpriority={fetchpriority} class={className} />
+  <Image src={source} alt={alt} width={width} height={height} sizes={sizes} loading={loading} fetchpriority={fetchpriority} class={className} />
 )}

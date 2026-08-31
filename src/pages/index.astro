@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CmsImage from "../components/CmsImage.astro";
+import { churchPhotos } from "../data/church-photos";
 import { getCmsContent } from "../lib/cms/content";
 
 const { aboutPage, homepage, settings } = await getCmsContent();
@@ -12,8 +14,15 @@ const { aboutPage, homepage, settings } = await getCmsContent();
         <p class="home-hero-location">First Baptist Church · Laramie, Wyoming</p>
         <h1 class="home-hero-title"><span>First Baptist</span><span>Church</span></h1>
       </div>
-      <figure class="photo-placeholder photo-placeholder-hero">
-        <figcaption>Approved church or congregation photography will live here.</figcaption>
+      <figure class="home-photo home-hero-photo">
+        <CmsImage
+          source={churchPhotos.hero.source}
+          alt={churchPhotos.hero.alt}
+          loading="eager"
+          fetchpriority="high"
+          sizes="(max-width: 699px) 100vw, 57vw"
+          class="home-photo-image"
+        />
       </figure>
       <div class="home-hero-claim">
         <p>{aboutPage.mission}</p>
@@ -58,8 +67,13 @@ const { aboutPage, homepage, settings } = await getCmsContent();
         <p class="home-lead">If you are looking for a church in Laramie, start with a question, a Sunday, or a conversation. We want your first visit to feel clear and human.</p>
         <a class="text-link home-arrow-link" href="/visit">Plan your visit <span aria-hidden="true">↗</span></a>
       </div>
-      <figure class="photo-placeholder photo-placeholder-welcome">
-        <figcaption>A candid welcome or fellowship photograph will be added after approval.</figcaption>
+      <figure class="home-photo home-welcome-photo">
+        <CmsImage
+          source={churchPhotos.welcome.source}
+          alt={churchPhotos.welcome.alt}
+          sizes="(max-width: 699px) 100vw, 50vw"
+          class="home-photo-image"
+        />
       </figure>
     </div>
   </section>
@@ -92,14 +106,37 @@ const { aboutPage, homepage, settings } = await getCmsContent();
 
   <section class="home-media-section section" aria-labelledby="media-heading">
     <div class="site-container home-media-grid">
-      <div class="home-media-art photo-placeholder photo-placeholder-wide">
-        <p>Community and Wyoming context photography will be added after image approval.</p>
+      <div class="home-media-art home-photo">
+        <CmsImage
+          source={churchPhotos.history.source}
+          alt={churchPhotos.history.alt}
+          sizes="(max-width: 699px) 100vw, 50vw"
+          class="home-photo-image"
+        />
       </div>
       <div class="home-media-copy">
         <p class="eyebrow">A local church with a long memory</p>
         <h2 class="section-heading" id="media-heading">Laramie has been part of our story from the beginning.</h2>
         <p class="home-lead">{aboutPage.history[0].paragraphs[0]}</p>
         <a class="text-link home-arrow-link" href="/about">Read our story <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-gallery section" aria-labelledby="gallery-heading">
+    <div class="site-container">
+      <div class="home-gallery-intro">
+        <p class="eyebrow">Around First Baptist</p>
+        <h2 class="section-heading" id="gallery-heading">A church is made of people, places, and ordinary days.</h2>
+        <p class="home-lead">A few glimpses of the life we share in and around our Laramie home.</p>
+      </div>
+      <div class="home-photo-grid">
+        {churchPhotos.gallery.map((photo, index) => (
+          <figure class:list={["home-gallery-photo", `home-gallery-photo-${index + 1}`]}>
+            <CmsImage source={photo.source} alt={photo.alt} sizes="(max-width: 699px) 100vw, (max-width: 999px) 50vw, 33vw" class="home-photo-image" />
+            <figcaption>{photo.label}</figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   </section>

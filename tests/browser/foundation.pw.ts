@@ -55,6 +55,14 @@ test.describe("M2 homepage", () => {
     await expect(page.getByRole("link", { name: "Who we are Our story, beliefs, and the values that shape life together." })).toBeVisible();
   });
 
+  test("uses the supplied church photography with meaningful alternatives", async ({ page }) => {
+    await page.goto("/");
+    const images = page.locator("main img");
+    await expect(images).toHaveCount(13);
+    const altText = await images.evaluateAll((elements) => elements.map((element) => element.getAttribute("alt")));
+    expect(altText.every((alt) => Boolean(alt?.trim()))).toBe(true);
+  });
+
   test("has no critical axe violations on the homepage", async ({ page }) => {
     await page.goto("/");
     const results = await new AxeBuilder({ page }).analyze();

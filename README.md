@@ -34,4 +34,4 @@ The separate Studio in `studio/` is deployed to Sanity and is not embedded in th
 
 ## Current milestone
 
-M2 establishes the homepage visual proof: typography, palette, editorial section rhythm, newcomer hierarchy, service information band, responsive composition, and accessibility baseline. Photography, service times, and other mutable church facts remain clearly marked until verified.
+M2 establishes the homepage visual proof: typography, palette, editorial section rhythm, newcomer hierarchy, service information band, responsive composition, and accessibility baseline. The supplied church photography is now used throughout the homepage; service times and other mutable church facts remain clearly marked until verified.

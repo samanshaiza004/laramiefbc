@@ -13,6 +13,7 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - Final beliefs copy supplied by church leadership has been editorially normalized: citation spacing and abbreviations are consistent, em dashes replace draft hyphen artifacts, and the value headings are “Biblical Truth” and “Love Our Neighbors.”
 - The history opening now distinguishes Laramie’s 1868 founding from First Baptist Church’s 1870 founding, per leadership direction.
 - The supplied copy is ready to migrate into Sanity, but production still requires confirming the published document, current leadership/location claims, and all mutable visitor information.
+- The supplied photo set is now implemented in the first homepage version: the wide exterior leads the hero, a shared meal supports the newcomer welcome, a church-family portrait accompanies the Laramie history, and ten additional photographs form the church-life gallery.
 
 ## Probable but unverified
 
@@ -33,6 +34,6 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - Events, recurring ministry schedules, and cancellation/update process.
 - Giving provider, mailing instructions, in-person giving instructions, and approved financial wording.
 - Contact form recipient, spam handling, retention policy, and privacy notice.
-- Approved congregation, building, worship, ministry, and Laramie/Wyoming photography with alt text and usage rights.
+- Final photo approval: confirm usage rights/consent, preferred crops, final alt text, and any captions before launch. The initial version uses the supplied photographs from `/Users/keina/Downloads/pictures/`; one social-media screenshot was intentionally not published as a website image.
 - Social profile URLs and sharing image.
 - Netlify site, build hook, environment variables, and separate Sanity Studio project/deployment.
