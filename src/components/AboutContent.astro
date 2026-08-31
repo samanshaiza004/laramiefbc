@@ -1,5 +1,7 @@
 ---
 import type { AboutPageContent } from "../lib/cms/types";
+import CmsImage from "./CmsImage.astro";
+import { churchPhotos } from "../data/church-photos";
 
 interface Props {
   aboutPage: AboutPageContent;
@@ -9,10 +11,15 @@ const { aboutPage } = Astro.props;
 ---
 
 <header class="about-hero section">
-  <div class="site-container">
-    <p class="eyebrow">About us</p>
-    <h1 class="display-heading">{aboutPage.title}</h1>
-    <p class="mission-callout">{aboutPage.mission}</p>
+  <div class="site-container about-hero-grid">
+    <div>
+      <p class="eyebrow">About us</p>
+      <h1 class="display-heading">{aboutPage.title}</h1>
+      <p class="mission-callout">{aboutPage.mission}</p>
+    </div>
+    <figure class="about-hero-photo">
+      <CmsImage source={churchPhotos.gallery[0].source} alt={churchPhotos.gallery[0].alt} sizes="(max-width: 699px) 100vw, 42vw" class="m3-photo-image" />
+    </figure>
   </div>
 </header>
 

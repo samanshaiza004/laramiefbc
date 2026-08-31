@@ -1,0 +1,103 @@
+---
+import type { ChurchSettings, PageContent } from "../lib/cms/types";
+import CmsImage from "./CmsImage.astro";
+import { churchPhotos } from "../data/church-photos";
+
+interface Props {
+  visitPage: PageContent;
+  settings: ChurchSettings;
+}
+
+const { visitPage, settings } = Astro.props;
+
+const practicalDetails = [
+  {
+    heading: "Parking",
+    copy: "Parking guidance will be confirmed by church leadership before launch.",
+  },
+  {
+    heading: "Entrances and accessibility",
+    copy: "Entrance and accessibility details will be confirmed before launch so this page can give you dependable directions.",
+  },
+  {
+    heading: "Children and nursery",
+    copy: "Children’s ministry and nursery availability will be confirmed before launch.",
+  },
+  {
+    heading: "What to expect",
+    copy: "Worship format, approximate service length, dress expectations, communion, and baptism practices will be confirmed before launch.",
+  },
+] as const;
+---
+
+<header class="m3-hero visit-hero">
+  <div class="site-container m3-hero-grid">
+    <div class="m3-hero-copy">
+      <p class="eyebrow">Plan Your Visit</p>
+      <h1 class="display-heading">{visitPage.title}</h1>
+      <p class="m3-hero-lead">Start with the details you need, then come as you are. We’ll keep making this page more useful as the church confirms each practical detail.</p>
+    </div>
+    <figure class="m3-hero-photo">
+      <CmsImage source={churchPhotos.hero.source} alt={churchPhotos.hero.alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+  </div>
+</header>
+
+<section class="visit-service-section section" aria-labelledby="visit-service-heading">
+  <div class="site-container visit-service-grid">
+    <div class="visit-service-intro">
+      <p class="eyebrow">This Sunday</p>
+      <h2 class="section-heading" id="visit-service-heading">Start here.</h2>
+      <p class="m3-lead">Sunday School and worship are the first places to look for a Sunday at First Baptist.</p>
+    </div>
+    <div class="visit-service-list">
+      {settings.services.map((service) => (
+        <div class="visit-service-row">
+          <p class="visit-service-label">{service.label}</p>
+          <p class="visit-service-value">{service.day}<span aria-hidden="true"> · </span>{service.time}</p>
+          <p class="visit-service-note">{service.notes}</p>
+        </div>
+      ))}
+    </div>
+    <address class="visit-address">
+      <p class="visit-address-kicker">Find us</p>
+      <p>{settings.address.street}<br />{settings.address.locality}, {settings.address.region} {settings.address.postalCode}</p>
+      <div class="visit-address-actions">
+        <a class="button" href={settings.directionsUrl}>Get Directions</a>
+        <a class="text-link" href={settings.mapUrl}>Open map <span aria-hidden="true">↗</span></a>
+      </div>
+    </address>
+  </div>
+</section>
+
+<section class="visit-details section" aria-labelledby="visit-details-heading">
+  <div class="site-container visit-details-grid">
+    <div class="visit-details-intro">
+      <p class="eyebrow">Before you arrive</p>
+      <h2 class="section-heading" id="visit-details-heading">Clear answers matter.</h2>
+      <p class="m3-lead">We don’t want a first visit to feel like a test. These are the questions we’re making sure to answer well.</p>
+    </div>
+    <div class="visit-fact-list">
+      {practicalDetails.map((detail) => (
+        <section class="visit-fact" aria-labelledby={`visit-${detail.heading.toLowerCase().replaceAll(" ", "-")}`}>
+          <h3 id={`visit-${detail.heading.toLowerCase().replaceAll(" ", "-")}`}>{detail.heading}</h3>
+          <p>{detail.copy}</p>
+        </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="visit-welcome section" aria-labelledby="visit-welcome-heading">
+  <div class="site-container visit-welcome-grid">
+    <figure class="visit-welcome-photo">
+      <CmsImage source={churchPhotos.welcome.source} alt={churchPhotos.welcome.alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+    <div>
+      <p class="eyebrow">Questions are welcome</p>
+      <h2 class="section-heading" id="visit-welcome-heading">You can ask before you arrive.</h2>
+      <p class="m3-lead">If you’re wondering about a first Sunday, reach out. We’ll help you find the clearest next step.</p>
+      <a class="button" href="/contact">Contact the Church</a>
+    </div>
+  </div>
+</section>

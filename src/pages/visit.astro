@@ -1,10 +1,10 @@
 ---
-import FoundationPage from "../components/FoundationPage.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import VisitContent from "../components/VisitContent.astro";
 import { getCmsContent } from "../lib/cms/content";
 
 const { visitPage, settings } = await getCmsContent();
 ---
 <BaseLayout title={visitPage.title} description={visitPage.description}>
-  <FoundationPage title={visitPage.title} description={visitPage.description} settings={settings} />
+  <VisitContent visitPage={visitPage} settings={settings} />
 </BaseLayout>

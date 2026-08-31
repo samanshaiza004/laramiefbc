@@ -1,0 +1,67 @@
+---
+import type { ChurchSettings } from "../lib/cms/types";
+import CmsImage from "./CmsImage.astro";
+import { churchPhotos } from "../data/church-photos";
+
+interface Props {
+  settings: ChurchSettings;
+}
+
+const { settings } = Astro.props;
+---
+
+<header class="m3-hero connect-hero">
+  <div class="site-container m3-hero-grid">
+    <div class="m3-hero-copy">
+      <p class="eyebrow">Ministries / Connect</p>
+      <h1 class="display-heading">Find your way in.</h1>
+      <p class="m3-hero-lead">Church life grows through ordinary conversations, shared worship, and people making room for one another.</p>
+    </div>
+    <figure class="m3-hero-photo">
+      <CmsImage source={churchPhotos.gallery[2].source} alt={churchPhotos.gallery[2].alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+  </div>
+</header>
+
+<section class="connect-pathways section" aria-labelledby="connect-pathways-heading">
+  <div class="site-container">
+    <div class="connect-intro">
+      <p class="eyebrow">Take a next step</p>
+      <h2 class="section-heading" id="connect-pathways-heading">Begin with what’s in front of you.</h2>
+    </div>
+    <div class="connect-list">
+      <a class="connect-row" href="/visit">
+        <span class="connect-row-title">Worship with us</span>
+        <span class="connect-row-copy">See the Sunday schedule, find the building, and plan a first visit.</span>
+        <span class="connect-row-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="connect-row" href="/about">
+        <span class="connect-row-title">Know the story</span>
+        <span class="connect-row-copy">Read the history, beliefs, and values that shape life at First Baptist.</span>
+        <span class="connect-row-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="connect-row" href="/contact">
+        <span class="connect-row-title">Start a conversation</span>
+        <span class="connect-row-copy">Ask a question, share a prayer request, or tell us how we can help.</span>
+        <span class="connect-row-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="connect-community section" aria-labelledby="connect-community-heading">
+  <div class="site-container connect-community-grid">
+    <div class="connect-community-copy">
+      <p class="eyebrow">A community in progress</p>
+      <h2 class="section-heading" id="connect-community-heading">There is room for your question.</h2>
+      <p class="m3-lead">Specific ministry opportunities and recurring schedules will be added here after church leadership confirms them. Until then, the best next step is to visit or contact the church.</p>
+      <div class="connect-contact-line">
+        <span>{settings.address.locality}, {settings.address.region}</span>
+        <a class="text-link" href="/contact">Contact the Church <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <figure class="connect-community-photo">
+      <CmsImage source={churchPhotos.history.source} alt={churchPhotos.history.alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+  </div>
+</section>

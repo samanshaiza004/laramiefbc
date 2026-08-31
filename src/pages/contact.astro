@@ -1,17 +1,33 @@
 ---
 import ContactForm from "../components/ContactForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CmsImage from "../components/CmsImage.astro";
+import { churchPhotos } from "../data/church-photos";
 import { getCmsContent } from "../lib/cms/content";
 
 const { settings } = await getCmsContent();
 ---
 <BaseLayout title="Contact" description="Contact First Baptist Church of Laramie with a question or prayer request.">
-  <section class="placeholder-page section" aria-labelledby="contact-heading">
-    <div class="site-container">
-      <p class="eyebrow">Contact the church</p>
-      <h1 id="contact-heading">We’d be glad to hear from you.</h1>
-      <p class="reading-width">{settings.email} · {settings.phoneDisplay}</p>
+  <section class="contact-page section" aria-labelledby="contact-heading">
+    <div class="site-container contact-page-grid">
+      <div class="contact-page-intro">
+        <p class="eyebrow">Contact the church</p>
+        <h1 class="display-heading" id="contact-heading">We’d be glad to hear from you.</h1>
+        <p class="m3-lead">Questions, prayer requests, and first-visit nerves are all good reasons to reach out.</p>
+        <address class="contact-details">
+          <p>{settings.address.street}<br />{settings.address.locality}, {settings.address.region} {settings.address.postalCode}</p>
+          <p>{settings.phoneDisplay}<br />{settings.email}</p>
+        </address>
+      </div>
       <ContactForm />
+    </div>
+  </section>
+  <section class="contact-photo-band" aria-label="Life at First Baptist Church">
+    <div class="site-container contact-photo-grid">
+      <figure class="contact-photo">
+        <CmsImage source={churchPhotos.gallery[7].source} alt={churchPhotos.gallery[7].alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+      </figure>
+      <p>Reach out before you arrive. We’ll help you find a clear next step.</p>
     </div>
   </section>
 </BaseLayout>

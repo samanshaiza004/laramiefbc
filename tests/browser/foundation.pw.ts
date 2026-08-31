@@ -73,12 +73,45 @@ test.describe("M2 homepage", () => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
 
-    for (const route of ["/", "/visit", "/about", "/contact"]) {
+    for (const route of ["/", "/visit", "/about", "/contact", "/connect"]) {
       const response = await page.goto(route);
       expect(response?.ok()).toBe(true);
       await expect(page.locator("main#main-content")).toBeVisible();
     }
 
     await context.close();
+  });
+});
+
+test.describe("M3 newcomer pages", () => {
+  test("gives each newcomer route a clear primary heading", async ({ page }) => {
+    const routes = [
+      ["/visit", "Plan Your Visit"],
+      ["/about", "About First Baptist Church"],
+      ["/connect", "Find your way in."],
+      ["/contact", "We’d be glad to hear from you."],
+    ] as const;
+
+    for (const [route, heading] of routes) {
+      await page.goto(route);
+      await expect(page.getByRole("heading", { name: heading, level: 1 })).toBeVisible();
+    }
+  });
+
+  test("keeps newcomer routes within the viewport on mobile", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 700 });
+
+    for (const route of ["/visit", "/about", "/connect", "/contact"]) {
+      await page.goto(route);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth), route).toBeLessThanOrEqual(320);
+    }
+  });
+
+  test("has no critical axe violations on newcomer routes", async ({ page }) => {
+    for (const route of ["/visit", "/about", "/connect", "/contact"]) {
+      await page.goto(route);
+      const results = await new AxeBuilder({ page }).analyze();
+      expect(results.violations, route).toEqual([]);
+    }
   });
 });
