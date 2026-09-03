@@ -8,8 +8,7 @@ interface Props {
 }
 
 const { sermon, featured = false } = Astro.props;
-const destination = sermon.videoUrl ?? `/sermons/${sermon.slug}`;
-const isExternal = Boolean(sermon.videoUrl);
+const destination = `/sermons/${sermon.slug}`;
 ---
 
 <article class:list={["sermon-card", featured && "sermon-card-featured"]}>
@@ -20,7 +19,7 @@ const isExternal = Boolean(sermon.videoUrl);
   <h3 class="sermon-card-title">{sermon.title}</h3>
   <p class="sermon-card-speaker">{sermon.speaker.name}{sermon.speaker.role ? ` · ${sermon.speaker.role}` : ""}</p>
   <p class="sermon-card-description">{sermon.description}</p>
-  <a class="text-link sermon-card-link" href={destination} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
-    {isExternal ? "Watch sermon" : "Sermon details"} <span aria-hidden="true">↗</span>
+  <a class="text-link sermon-card-link" href={destination}>
+    Sermon details <span aria-hidden="true">↗</span>
   </a>
 </article>

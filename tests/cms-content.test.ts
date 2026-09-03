@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { getCmsContent, getCmsSource, isProductionEnvironment } from "../src/lib/cms/content";
+import { CMS_CONTENT_QUERY } from "../src/lib/cms/queries";
 
 describe("CMS source boundary", () => {
   test("defaults non-production environments to local fixtures", () => {
@@ -11,6 +12,7 @@ describe("CMS source boundary", () => {
     expect(content.source).toBe("local");
     expect(content.settings.services.length).toBeGreaterThan(0);
     expect(content.settings.address.locality).toBe("Laramie");
+    expect(content.settings.address.postalCode).toBe("82072");
     expect(content.aboutPage.mission).toContain("Christ’s love — in both word and deed");
     expect(content.aboutPage.history[0].paragraphs[0]).toStartWith("Laramie sprang up alongside the Union Pacific Railroad in 1868.");
     expect(content.aboutPage.history[0].paragraphs[0]).not.toContain("arriving alongside the Union Pacific Railroad in 1868");
@@ -42,5 +44,9 @@ describe("CMS source boundary", () => {
     }
 
     expect(errorMessage).toContain("Production builds must use CMS_SOURCE=sanity");
+  });
+
+  test("keeps an event visible until its end time", () => {
+    expect(CMS_CONTENT_QUERY).toContain("coalesce(end, start) >= now()");
   });
 });

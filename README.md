@@ -24,6 +24,8 @@ SITE_URL=http://localhost:4321 CMS_SOURCE=local SANITY_PROJECT_ID=local-developm
 
 Production builds require `SITE_URL`, `SANITY_PROJECT_ID`, `SANITY_DATASET`, and `CMS_SOURCE=sanity`. A production build using local fixtures fails by design.
 
+The contact function requires the server-only `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`, and `CONTACT_EMAIL_API_KEY` variables. It sends through Resend, rejects oversized or malformed requests, and fails closed when delivery is not configured.
+
 ## Publishing model
 
 The public site is deployed as static HTML on Netlify. The intended content path is:
@@ -31,6 +33,8 @@ The public site is deployed as static HTML on Netlify. The intended content path
 `Sanity publish → Netlify build hook → Astro fetches and validates → successful build → atomic deployment`
 
 The separate Studio in `studio/` is deployed to Sanity and is not embedded in the public application.
+
+The supplied About copy and church photography are ready for staff review, but no mutable sermon, event, ministry, leadership, giving, contact, or service facts are treated as production content until they are published and confirmed in Sanity.
 
 ## Current milestone
 

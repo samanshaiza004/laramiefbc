@@ -104,7 +104,7 @@ export const CMS_CONTENT_QUERY = defineQuery(/* groq */ `{
   "givingPage": *[_id == "givingPage"][0] ${pageProjection},
   "sermonSeries": *[_type == "sermonSeries"] | order(title asc) ${seriesProjection},
   "sermons": *[_type == "sermon"] | order(date desc) ${sermonProjection},
-  "events": *[_type == "event" && start >= now()] | order(start asc) ${eventProjection},
+  "events": *[_type == "event" && coalesce(end, start) >= now()] | order(start asc) ${eventProjection},
   "ministries": *[_type == "ministry"] | order(title asc) ${ministryProjection},
   "people": *[_type == "person"] | order(name asc) ${personProjection},
   "announcements": *[_type == "announcement" && (!defined(expiresAt) || expiresAt > now())] | order(priority desc, publishedAt desc) ${announcementProjection}

@@ -16,7 +16,7 @@ export const localContent: CmsContent = {
       street: "1517 Canby Street",
       locality: "Laramie",
       region: "WY",
-      postalCode: "[ZIP TO BE CONFIRMED]",
+      postalCode: "82072",
       country: "US",
     },
     phoneDisplay: "[PHONE TO BE CONFIRMED]",

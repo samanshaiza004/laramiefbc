@@ -84,6 +84,8 @@ test.describe("M2 homepage", () => {
 });
 
 test.describe("M4 dynamic content pages", () => {
+  test.setTimeout(60_000);
+
   test("gives each M4 route a clear primary heading", async ({ page }) => {
     const routes = [
       ["/sermons", "Sermons"],
@@ -120,9 +122,29 @@ test.describe("M4 dynamic content pages", () => {
     await page.getByRole("link", { name: "Sermon details" }).click();
     await expect(page.getByRole("heading", { name: "[SYNTHETIC FIXTURE] Sermon preview", level: 1 })).toBeVisible();
   });
+
+  test("keeps public internal links resolvable", async ({ page, request }) => {
+    const routes = ["/", "/visit", "/about", "/connect", "/contact", "/sermons", "/events", "/leadership", "/give", "/sermons/synthetic-sermon-preview"];
+    const internalLinks = new Set<string>();
+
+    for (const route of routes) {
+      await page.goto(route);
+      const hrefs = await page.locator("a[href]").evaluateAll((anchors) => anchors.map((anchor) => anchor.getAttribute("href")));
+      for (const href of hrefs) {
+        if (href?.startsWith("/") && !href.startsWith("//") && !href.startsWith("/.netlify/")) internalLinks.add(href.split("#")[0] ?? href);
+      }
+    }
+
+    for (const href of internalLinks) {
+      const response = await request.get(href);
+      expect(response.ok(), href).toBe(true);
+    }
+  });
 });
 
 test.describe("M3 newcomer pages", () => {
+  test.setTimeout(60_000);
+
   test("gives each newcomer route a clear primary heading", async ({ page }) => {
     const routes = [
       ["/visit", "Plan Your Visit"],

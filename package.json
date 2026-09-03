@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint .",
-    "test": "bun test tests/cms-content.test.ts tests/site-url.test.ts",
+    "test": "bun test tests/cms-content.test.ts tests/site-url.test.ts tests/contact.test.ts",
     "test:browser": "playwright test",
     "test:browser:headed": "playwright test --headed",
     "studio:dev": "bun run --cwd studio dev",

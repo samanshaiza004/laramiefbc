@@ -6,6 +6,7 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 
 - Church name requested for this project: First Baptist Church of Laramie.
 - City and state requested for this project: Laramie, Wyoming.
+- Postal code supplied for this project: 82072.
 
 ## Received website draft
 
@@ -24,7 +25,7 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 ## Missing or requiring confirmation
 
 - Canonical production domain and DNS ownership.
-- Street address, city, state, postal code, and map destination.
+- Street address and map destination. Confirm that 82072 belongs to the final public mailing address before launch.
 - Main telephone number and public email address.
 - Sunday School, worship, fellowship, and other recurring service times.
 - Time zone and seasonal schedule behavior, if any.
@@ -34,7 +35,7 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - Sermon archive, YouTube channel, series names, speakers, dates, and media permissions.
 - Events, recurring ministry schedules, and cancellation/update process.
 - Giving provider, mailing instructions, in-person giving instructions, and approved financial wording.
-- Contact form recipient, spam handling, retention policy, and privacy notice.
+- Contact form recipient, delivery provider/from address, spam handling policy, retention policy, and privacy notice. The endpoint currently fails closed until its server-only delivery variables are configured.
 - Final photo approval: confirm usage rights/consent, preferred crops, final alt text, and any captions before launch. The initial version uses the supplied photographs from `/Users/keina/Downloads/pictures/`; one social-media screenshot was intentionally not published as a website image.
 - Social profile URLs and sharing image.
 - Publish and verify the first sermon records, series relationships, recording URLs, and accessible thumbnail alternatives.

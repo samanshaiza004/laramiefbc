@@ -22,4 +22,4 @@ Sanity publish triggers a Netlify build hook. The candidate build fetches publis
 
 ## Contact security
 
-The future contact function will validate on the server, enforce request and field-size bounds, use a honeypot or equivalent spam control, return generic errors, keep credentials server-side, and avoid logging submitted message bodies.
+`netlify/functions/contact.ts` validates the form again on the server, enforces request and field-size bounds, uses a honeypot, returns generic HTML responses, keeps delivery credentials server-side, and never logs submitted message bodies. Delivery uses the configured email provider only when all required server environment variables are present; otherwise the endpoint fails closed.
