@@ -146,4 +146,30 @@ export const localContent: CmsContent = {
     title: "Give",
     description: "[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Giving instructions will be confirmed before launch.",
   },
+  sermons: [
+    {
+      id: "local-sermon-preview",
+      title: "[SYNTHETIC FIXTURE] Sermon preview",
+      slug: "synthetic-sermon-preview",
+      speaker: { name: "[SPEAKER TO BE CONFIRMED]" },
+      date: "2026-01-18",
+      series: { title: "[SERIES TO BE CONFIRMED]", slug: "series-to-be-confirmed" },
+      description: "[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Sermon title, speaker, date, description, and recording will be supplied by church leadership.",
+      featured: true,
+    },
+  ],
+  sermonSeries: [],
+  events: [
+    {
+      id: "local-event-preview",
+      title: "[SYNTHETIC FIXTURE] Upcoming event preview",
+      slug: "synthetic-event-preview",
+      start: "2026-12-31T18:00:00-07:00",
+      location: "[LOCATION TO BE CONFIRMED]",
+      description: "[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Event details, date, time, and registration information will be supplied by church leadership.",
+    },
+  ],
+  ministries: [],
+  people: [],
+  announcements: [],
 };

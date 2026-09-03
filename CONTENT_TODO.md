@@ -14,6 +14,7 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - The history opening now distinguishes Laramie’s 1868 founding from First Baptist Church’s 1870 founding, per leadership direction.
 - The supplied copy is ready to migrate into Sanity, but production still requires confirming the published document, current leadership/location claims, and all mutable visitor information.
 - The supplied photo set is now implemented in the first homepage version: the wide exterior leads the hero, a shared meal supports the newcomer welcome, a church-family portrait accompanies the Laramie history, and ten additional photographs form the church-life gallery.
+- M4 now includes structured Studio collections for sermons, sermon series, events, ministries, people, and announcements. No local dynamic fixture is a verified sermon, event, ministry, or leadership record.
 
 ## Probable but unverified
 
@@ -36,4 +37,7 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - Contact form recipient, spam handling, retention policy, and privacy notice.
 - Final photo approval: confirm usage rights/consent, preferred crops, final alt text, and any captions before launch. The initial version uses the supplied photographs from `/Users/keina/Downloads/pictures/`; one social-media screenshot was intentionally not published as a website image.
 - Social profile URLs and sharing image.
+- Publish and verify the first sermon records, series relationships, recording URLs, and accessible thumbnail alternatives.
+- Publish and verify upcoming event dates, locations, descriptions, registration links, and cancellation/update ownership.
+- Publish and verify ministry records and recurring schedules before replacing the Connect page’s pending language.
 - Netlify site, build hook, environment variables, and separate Sanity Studio project/deployment.

@@ -1,0 +1,51 @@
+---
+import type { ChurchSettings, Event } from "../lib/cms/types";
+import { churchPhotos } from "../data/church-photos";
+import CmsImage from "./CmsImage.astro";
+import EventList from "./EventList.astro";
+
+interface Props {
+  events: Event[];
+  settings: ChurchSettings;
+}
+
+const { events, settings } = Astro.props;
+---
+
+<header class="m3-hero m4-hero">
+  <div class="site-container m3-hero-grid">
+    <div class="m3-hero-copy">
+      <p class="eyebrow">Make room for community</p>
+      <h1 class="display-heading">Events</h1>
+      <p class="m3-hero-lead">Shared meals, ordinary conversations, and the moments that help a church become a community.</p>
+    </div>
+    <figure class="m3-hero-photo">
+      <CmsImage source={churchPhotos.gallery[3].source} alt={churchPhotos.gallery[3].alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+  </div>
+</header>
+
+<section class="m4-events section" aria-labelledby="events-heading">
+  <div class="site-container">
+    <div class="m4-section-intro">
+      <p class="eyebrow">What’s ahead</p>
+      <h2 class="section-heading" id="events-heading">Put something on the calendar.</h2>
+      <p class="m3-lead">Check here for current church gatherings. Dates and details are published from the church’s shared content system.</p>
+    </div>
+    <EventList events={events} />
+  </div>
+</section>
+
+<section class="m4-events-closing section" aria-labelledby="events-closing-heading">
+  <div class="site-container m4-closing-grid">
+    <div>
+      <p class="eyebrow">Questions welcome</p>
+      <h2 class="section-heading" id="events-closing-heading">Not sure where to begin?</h2>
+    </div>
+    <div>
+      <p class="m3-lead">Start with Sunday or send a note. We’ll help you find the next clear step.</p>
+      <a class="button" href="/contact">Contact the Church</a>
+      <a class="text-link m4-secondary-link" href={settings.directionsUrl}>Get Directions <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>

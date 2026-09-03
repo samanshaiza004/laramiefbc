@@ -1,0 +1,26 @@
+---
+import type { Sermon } from "../lib/cms/types";
+import { formatDate } from "../lib/format";
+
+interface Props {
+  sermon: Sermon;
+  featured?: boolean;
+}
+
+const { sermon, featured = false } = Astro.props;
+const destination = sermon.videoUrl ?? `/sermons/${sermon.slug}`;
+const isExternal = Boolean(sermon.videoUrl);
+---
+
+<article class:list={["sermon-card", featured && "sermon-card-featured"]}>
+  <div class="sermon-card-meta">
+    <span>{sermon.series?.title ?? "Sermon"}</span>
+    <time datetime={sermon.date}>{formatDate(sermon.date)}</time>
+  </div>
+  <h3 class="sermon-card-title">{sermon.title}</h3>
+  <p class="sermon-card-speaker">{sermon.speaker.name}{sermon.speaker.role ? ` · ${sermon.speaker.role}` : ""}</p>
+  <p class="sermon-card-description">{sermon.description}</p>
+  <a class="text-link sermon-card-link" href={destination} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
+    {isExternal ? "Watch sermon" : "Sermon details"} <span aria-hidden="true">↗</span>
+  </a>
+</article>

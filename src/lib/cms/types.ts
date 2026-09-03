@@ -56,6 +56,82 @@ export interface AboutPageContent extends PageContent {
   values: ContentSection[];
 }
 
+export interface CmsImage {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
+export interface SermonSeries {
+  id: string;
+  title: string;
+  slug: string;
+  description?: string;
+  image?: CmsImage;
+}
+
+export interface PersonReference {
+  name: string;
+  role?: string;
+}
+
+export interface Sermon {
+  id: string;
+  title: string;
+  slug: string;
+  speaker: PersonReference;
+  date: string;
+  scripture?: string;
+  series?: Pick<SermonSeries, "title" | "slug">;
+  description: string;
+  videoUrl?: string;
+  audioUrl?: string;
+  thumbnail?: CmsImage;
+  featured: boolean;
+}
+
+export interface Event {
+  id: string;
+  title: string;
+  slug: string;
+  start: string;
+  end?: string;
+  location?: string;
+  description: string;
+  image?: CmsImage;
+  registrationUrl?: string;
+}
+
+export interface Ministry {
+  id: string;
+  title: string;
+  slug: string;
+  summary: string;
+  description?: string;
+  image?: CmsImage;
+  contactUrl?: string;
+}
+
+export interface Person {
+  id: string;
+  name: string;
+  role: string;
+  bio?: string;
+  photo?: CmsImage;
+  email?: string;
+}
+
+export interface Announcement {
+  id: string;
+  title: string;
+  summary: string;
+  publishedAt: string;
+  expiresAt?: string;
+  priority: "normal" | "featured";
+  href?: string;
+}
+
 export interface CmsContent {
   source: CmsSource;
   settings: ChurchSettings;
@@ -63,6 +139,12 @@ export interface CmsContent {
   visitPage: PageContent;
   aboutPage: AboutPageContent;
   givingPage: PageContent;
+  sermons: Sermon[];
+  sermonSeries: SermonSeries[];
+  events: Event[];
+  ministries: Ministry[];
+  people: Person[];
+  announcements: Announcement[];
 }
 
 export interface RuntimeEnv {

@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SermonDetail from "../../components/SermonDetail.astro";
+import { getCmsContent } from "../../lib/cms/content";
+import type { Sermon } from "../../lib/cms/types";
+
+export async function getStaticPaths() {
+  const { sermons } = await getCmsContent();
+  return sermons.map((sermon) => ({
+    params: { slug: sermon.slug },
+    props: { sermon },
+  }));
+}
+
+interface Props {
+  sermon: Sermon;
+}
+
+const { sermon } = Astro.props;
+---
+
+<BaseLayout title={sermon.title} description={sermon.description}>
+  <SermonDetail sermon={sermon} />
+</BaseLayout>

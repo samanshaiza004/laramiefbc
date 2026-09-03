@@ -7,7 +7,13 @@ export const seo = defineType({
   fields: [
     defineField({ name: "title", title: "Title override", type: "string", validation: (rule) => rule.max(70) }),
     defineField({ name: "description", title: "Description override", type: "text", rows: 3, validation: (rule) => rule.max(160) }),
-    defineField({ name: "image", title: "Social image", type: "image", options: { hotspot: true } }),
+    defineField({
+      name: "image",
+      title: "Social image",
+      type: "image",
+      options: { hotspot: true },
+      fields: [defineField({ name: "alt", title: "Alternative text", type: "string", validation: (rule) => rule.required() })],
+    }),
     defineField({ name: "noIndex", title: "Hide from search engines", type: "boolean", initialValue: false }),
   ],
 });

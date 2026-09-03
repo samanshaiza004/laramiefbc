@@ -74,5 +74,11 @@ export async function getCmsContent(overrides?: RuntimeEnv): Promise<ParsedCmsCo
     visitPage: content.visitPage!,
     aboutPage: content.aboutPage!,
     givingPage: content.givingPage!,
+    sermons: content.sermons ?? [],
+    sermonSeries: content.sermonSeries ?? [],
+    events: content.events ?? [],
+    ministries: content.ministries ?? [],
+    people: content.people ?? [],
+    announcements: content.announcements ?? [],
   });
 }

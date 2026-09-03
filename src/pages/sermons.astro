@@ -1,10 +1,10 @@
 ---
-import FoundationPage from "../components/FoundationPage.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SermonsContent from "../components/SermonsContent.astro";
 import { getCmsContent } from "../lib/cms/content";
 
-const { settings } = await getCmsContent();
+const { sermons, settings } = await getCmsContent();
 ---
-<BaseLayout title="Sermons" description="[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Sermon archive content will be confirmed before launch.">
-  <FoundationPage title="Sermons" description="[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Sermon archive content will be confirmed before launch." settings={settings} />
+<BaseLayout title="Sermons" description="Hear the teaching and explore the sermon archive from First Baptist Church of Laramie.">
+  <SermonsContent sermons={sermons} settings={settings} />
 </BaseLayout>

@@ -1,0 +1,82 @@
+---
+import type { ChurchSettings, Sermon } from "../lib/cms/types";
+import { churchPhotos } from "../data/church-photos";
+import CmsImage from "./CmsImage.astro";
+import SermonCard from "./SermonCard.astro";
+
+interface Props {
+  sermons: Sermon[];
+  settings: ChurchSettings;
+}
+
+const { sermons, settings } = Astro.props;
+const featuredSermon = sermons.find((sermon) => sermon.featured) ?? sermons[0];
+const archive = featuredSermon ? sermons.filter((sermon) => sermon.id !== featuredSermon.id) : sermons;
+---
+
+<header class="m3-hero m4-hero">
+  <div class="site-container m3-hero-grid">
+    <div class="m3-hero-copy">
+      <p class="eyebrow">Listen first</p>
+      <h1 class="display-heading">Sermons</h1>
+      <p class="m3-hero-lead">Hear the teaching, spend time with a passage, and get a sense of how we follow Jesus together.</p>
+    </div>
+    <figure class="m3-hero-photo">
+      <CmsImage source={churchPhotos.gallery[7].source} alt={churchPhotos.gallery[7].alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+  </div>
+</header>
+
+<section class="m4-featured section" aria-labelledby="featured-sermon-heading">
+  <div class="site-container">
+    <div class="m4-section-intro">
+      <p class="eyebrow">Latest teaching</p>
+      <h2 class="section-heading" id="featured-sermon-heading">Stay with the Word.</h2>
+    </div>
+    {featuredSermon ? (
+      <div class="m4-featured-grid">
+        <SermonCard sermon={featuredSermon} featured />
+        <div class="m4-featured-note">
+          <p class="m4-note-label">First Baptist Church</p>
+          <p>Our sermon archive will grow here as recordings and service details are confirmed. Every entry is structured so you can find the speaker, date, Scripture, and the clearest way to listen.</p>
+          <a class="button" href="/visit">Plan Your Visit</a>
+        </div>
+      </div>
+    ) : (
+      <div class="m4-empty-state">
+        <h3>Sermons are on their way.</h3>
+        <p>The sermon archive is being prepared. In the meantime, you can join us in person or ask the church a question.</p>
+        <a class="button" href="/contact">Contact the Church</a>
+      </div>
+    )}
+  </div>
+</section>
+
+<section class="m4-archive section" aria-labelledby="sermon-archive-heading">
+  <div class="site-container">
+    <div class="m4-archive-heading">
+      <p class="eyebrow">The archive</p>
+      <h2 class="section-heading" id="sermon-archive-heading">Listen when you’re ready.</h2>
+    </div>
+    {archive.length > 0 ? (
+      <div class="m4-list">
+        {archive.map((sermon) => <SermonCard sermon={sermon} />)}
+      </div>
+    ) : (
+      <p class="m4-empty-inline">More sermons will appear here as the archive is published.</p>
+    )}
+  </div>
+</section>
+
+<section class="m4-closing section" aria-labelledby="sermon-visit-heading">
+  <div class="site-container m4-closing-grid">
+    <div>
+      <p class="eyebrow">Come hear it with us</p>
+      <h2 class="section-heading" id="sermon-visit-heading">A recording can be a beginning.</h2>
+    </div>
+    <div>
+      <p class="m3-lead">Worship with the people of First Baptist in Laramie, or reach out if you’re still deciding what your next step should be.</p>
+      <a class="text-link" href={settings.directionsUrl}>Get Directions <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>

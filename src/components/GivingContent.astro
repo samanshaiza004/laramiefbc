@@ -1,0 +1,55 @@
+---
+import type { ChurchSettings, PageContent } from "../lib/cms/types";
+import { churchPhotos } from "../data/church-photos";
+import CmsImage from "./CmsImage.astro";
+
+interface Props {
+  givingPage: PageContent;
+  settings: ChurchSettings;
+}
+
+const { givingPage, settings } = Astro.props;
+---
+
+<header class="m3-hero m4-hero">
+  <div class="site-container m3-hero-grid">
+    <div class="m3-hero-copy">
+      <p class="eyebrow">A life of generosity</p>
+      <h1 class="display-heading">{givingPage.title}</h1>
+      <p class="m3-hero-lead">Giving is part of how we care for one another and share Christ’s love in word and deed.</p>
+    </div>
+    <figure class="m3-hero-photo">
+      <CmsImage source={churchPhotos.gallery[9].source} alt={churchPhotos.gallery[9].alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+  </div>
+</header>
+
+<section class="m4-giving section" aria-labelledby="giving-heading">
+  <div class="site-container m4-detail-grid">
+    <div>
+      <p class="eyebrow">Give with clarity</p>
+      <h2 class="section-heading" id="giving-heading">The giving details are being confirmed.</h2>
+    </div>
+    <div class="m4-detail-copy">
+      <p>We are preparing the approved online, in-person, and mailing instructions for this page. We will publish a giving link only after the church confirms the provider and wording.</p>
+      <p class="m4-muted-note">{givingPage.description}</p>
+      <div class="m4-detail-actions">
+        <a class="button" href="/contact">Ask about giving</a>
+        <a class="button button-secondary" href={settings.directionsUrl}>Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m4-giving-note section" aria-labelledby="giving-note-heading">
+  <div class="site-container m4-closing-grid">
+    <div>
+      <p class="eyebrow">A practical next step</p>
+      <h2 class="section-heading" id="giving-note-heading">Questions deserve a person.</h2>
+    </div>
+    <address class="m4-contact-block">
+      <p>{settings.address.street}<br />{settings.address.locality}, {settings.address.region} {settings.address.postalCode}</p>
+      <a class="text-link" href="/contact">Contact the Church <span aria-hidden="true">↗</span></a>
+    </address>
+  </div>
+</section>

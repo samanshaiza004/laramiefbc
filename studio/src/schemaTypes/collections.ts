@@ -1,6 +1,10 @@
 import { CalendarIcon, DocumentTextIcon, HeartIcon, PlayIcon, UserIcon } from "@sanity/icons";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
+const imageFields = [
+  defineField({ name: "alt", title: "Alternative text", type: "string", validation: (rule) => rule.required() }),
+];
+
 export const sermonSeries = defineType({
   name: "sermonSeries",
   title: "Sermon series",
@@ -10,7 +14,7 @@ export const sermonSeries = defineType({
     defineField({ name: "title", type: "string", validation: (rule) => rule.required() }),
     defineField({ name: "slug", type: "slug", options: { source: "title" }, validation: (rule) => rule.required() }),
     defineField({ name: "description", type: "text", rows: 4 }),
-    defineField({ name: "image", type: "image", options: { hotspot: true } }),
+    defineField({ name: "image", type: "image", options: { hotspot: true }, fields: imageFields }),
   ],
 });
 
@@ -29,7 +33,7 @@ export const sermon = defineType({
     defineField({ name: "description", type: "text", rows: 4, validation: (rule) => rule.required() }),
     defineField({ name: "videoUrl", title: "YouTube or video URL", type: "url" }),
     defineField({ name: "audioUrl", title: "Audio URL", type: "url" }),
-    defineField({ name: "thumbnail", type: "image", options: { hotspot: true } }),
+    defineField({ name: "thumbnail", type: "image", options: { hotspot: true }, fields: imageFields }),
     defineField({ name: "featured", type: "boolean", initialValue: false }),
   ],
 });
@@ -46,7 +50,7 @@ export const event = defineType({
     defineField({ name: "end", type: "datetime" }),
     defineField({ name: "location", type: "string" }),
     defineField({ name: "description", type: "text", rows: 4, validation: (rule) => rule.required() }),
-    defineField({ name: "image", type: "image", options: { hotspot: true } }),
+    defineField({ name: "image", type: "image", options: { hotspot: true }, fields: imageFields }),
     defineField({ name: "registrationUrl", type: "url" }),
   ],
 });
@@ -61,7 +65,7 @@ export const ministry = defineType({
     defineField({ name: "slug", type: "slug", options: { source: "title" }, validation: (rule) => rule.required() }),
     defineField({ name: "summary", type: "text", rows: 3, validation: (rule) => rule.required() }),
     defineField({ name: "description", type: "array", of: [defineArrayMember({ type: "block" })] }),
-    defineField({ name: "image", type: "image", options: { hotspot: true } }),
+    defineField({ name: "image", type: "image", options: { hotspot: true }, fields: imageFields }),
     defineField({ name: "contactUrl", type: "url" }),
   ],
 });
@@ -75,7 +79,7 @@ export const person = defineType({
     defineField({ name: "name", type: "string", validation: (rule) => rule.required() }),
     defineField({ name: "role", type: "string", validation: (rule) => rule.required() }),
     defineField({ name: "bio", type: "array", of: [defineArrayMember({ type: "block" })] }),
-    defineField({ name: "photo", type: "image", options: { hotspot: true } }),
+    defineField({ name: "photo", type: "image", options: { hotspot: true }, fields: imageFields }),
     defineField({ name: "email", type: "email" }),
   ],
 });

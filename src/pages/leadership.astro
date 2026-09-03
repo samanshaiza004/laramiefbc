@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LeadershipContent from "../components/LeadershipContent.astro";
+import { getCmsContent } from "../lib/cms/content";
+
+const { people } = await getCmsContent();
+---
+
+<BaseLayout title="Leadership" description="Meet the people who serve First Baptist Church of Laramie.">
+  <LeadershipContent people={people} />
+</BaseLayout>

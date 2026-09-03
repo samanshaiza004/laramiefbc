@@ -34,4 +34,4 @@ The separate Studio in `studio/` is deployed to Sanity and is not embedded in th
 
 ## Current milestone
 
-M3 extends the approved M2 visual system across Visit, About, Connect, and Contact. The supplied church photography is used throughout the public foundation; service times and other mutable church facts remain clearly marked until verified.
+M4 extends the approved M2 visual system to Sermons, Events, Leadership, and Give. Structured content is fetched through one validated Sanity boundary; local fixtures remain clearly marked for development and are rejected in production. The separate Studio contains singleton page documents and repeatable collections for staff editing.

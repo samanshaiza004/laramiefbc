@@ -56,6 +56,82 @@ const aboutPageSchema = pageContentSchema.extend({
   values: z.array(contentSectionSchema).min(1),
 }).strict();
 
+const cmsImageSchema = z.object({
+  src: z.url(),
+  alt: z.string().min(1),
+  width: z.number().int().positive().optional(),
+  height: z.number().int().positive().optional(),
+}).strict();
+
+const sermonSeriesSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  slug: z.string().min(1),
+  description: z.string().min(1).optional(),
+  image: cmsImageSchema.optional(),
+}).strict();
+
+const personReferenceSchema = z.object({
+  name: z.string().min(1),
+  role: z.string().min(1).optional(),
+}).strict();
+
+const sermonSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  slug: z.string().min(1),
+  speaker: personReferenceSchema,
+  date: z.string().min(1),
+  scripture: z.string().min(1).optional(),
+  series: z.object({ title: z.string().min(1), slug: z.string().min(1) }).strict().optional(),
+  description: z.string().min(1),
+  videoUrl: z.url().optional(),
+  audioUrl: z.url().optional(),
+  thumbnail: cmsImageSchema.optional(),
+  featured: z.boolean(),
+}).strict();
+
+const eventSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  slug: z.string().min(1),
+  start: z.string().min(1),
+  end: z.string().min(1).optional(),
+  location: z.string().min(1).optional(),
+  description: z.string().min(1),
+  image: cmsImageSchema.optional(),
+  registrationUrl: z.url().optional(),
+}).strict();
+
+const ministrySchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  slug: z.string().min(1),
+  summary: z.string().min(1),
+  description: z.string().min(1).optional(),
+  image: cmsImageSchema.optional(),
+  contactUrl: z.url().optional(),
+}).strict();
+
+const personSchema = z.object({
+  id: z.string().min(1),
+  name: z.string().min(1),
+  role: z.string().min(1),
+  bio: z.string().min(1).optional(),
+  photo: cmsImageSchema.optional(),
+  email: z.email().optional(),
+}).strict();
+
+const announcementSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  summary: z.string().min(1),
+  publishedAt: z.string().min(1),
+  expiresAt: z.string().min(1).optional(),
+  priority: z.enum(["normal", "featured"]),
+  href: z.string().min(1).optional(),
+}).strict();
+
 export const cmsContentSchema = z.object({
   source: z.enum(["local", "sanity"]),
   settings: churchSettingsSchema,
@@ -63,6 +139,12 @@ export const cmsContentSchema = z.object({
   visitPage: pageContentSchema,
   aboutPage: aboutPageSchema,
   givingPage: pageContentSchema,
+  sermons: z.array(sermonSchema),
+  sermonSeries: z.array(sermonSeriesSchema),
+  events: z.array(eventSchema),
+  ministries: z.array(ministrySchema),
+  people: z.array(personSchema),
+  announcements: z.array(announcementSchema),
 }).strict();
 
 export type ParsedCmsContent = z.infer<typeof cmsContentSchema>;

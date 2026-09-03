@@ -1,0 +1,37 @@
+---
+import type { Event } from "../lib/cms/types";
+import { formatEventDate, formatEventTime } from "../lib/format";
+
+interface Props {
+  events: Event[];
+}
+
+const { events } = Astro.props;
+---
+
+{events.length > 0 ? (
+  <div class="m4-event-list">
+    {events.map((event) => (
+      <article class="m4-event-row">
+        <div class="m4-event-date">
+          <time datetime={event.start}>{formatEventDate(event.start, event.end)}</time>
+          <span>{formatEventTime(event.start, event.end)}</span>
+        </div>
+        <div class="m4-event-copy">
+          <h3>{event.title}</h3>
+          <p>{event.description}</p>
+        </div>
+        <div class="m4-event-meta">
+          {event.location && <p>{event.location}</p>}
+          {event.registrationUrl && <a class="text-link" href={event.registrationUrl} target="_blank" rel="noopener noreferrer">Register <span aria-hidden="true">↗</span></a>}
+        </div>
+      </article>
+    ))}
+  </div>
+) : (
+  <div class="m4-empty-state">
+    <h3>No events are listed yet.</h3>
+    <p>Upcoming gatherings will be published here when their dates and details are confirmed.</p>
+    <a class="button" href="/contact">Ask about church life</a>
+  </div>
+)}

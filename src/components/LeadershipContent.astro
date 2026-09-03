@@ -1,0 +1,67 @@
+---
+import type { Person } from "../lib/cms/types";
+import { churchPhotos } from "../data/church-photos";
+import CmsImage from "./CmsImage.astro";
+
+interface Props {
+  people: Person[];
+}
+
+const { people } = Astro.props;
+---
+
+<header class="m3-hero m4-hero">
+  <div class="site-container m3-hero-grid">
+    <div class="m3-hero-copy">
+      <p class="eyebrow">People who serve</p>
+      <h1 class="display-heading">Leadership</h1>
+      <p class="m3-hero-lead">A church is led by people who listen, serve, teach, and make room for others.</p>
+    </div>
+    <figure class="m3-hero-photo">
+      <CmsImage source={churchPhotos.gallery[5].source} alt={churchPhotos.gallery[5].alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+  </div>
+</header>
+
+<section class="m4-people section" aria-labelledby="people-heading">
+  <div class="site-container">
+    <div class="m4-section-intro">
+      <p class="eyebrow">Meet the people</p>
+      <h2 class="section-heading" id="people-heading">Leadership is a way of serving.</h2>
+    </div>
+    {people.length > 0 ? (
+      <div class="m4-people-list">
+        {people.map((person) => (
+          <article class="m4-person">
+            {person.photo && <CmsImage source={person.photo.src} alt={person.photo.alt} width={person.photo.width} height={person.photo.height} sizes="(max-width: 699px) 100vw, 30vw" class="m4-person-photo" />}
+            <div class="m4-person-copy">
+              <p class="m4-note-label">{person.role}</p>
+              <h3>{person.name}</h3>
+              {person.bio && <p>{person.bio}</p>}
+              {person.email && <a class="text-link" href={`mailto:${person.email}`}>Email {person.name} <span aria-hidden="true">↗</span></a>}
+            </div>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="m4-empty-state">
+        <h3>Leadership profiles will be added soon.</h3>
+        <p>Names, roles, biographies, and photographs will be published after church leadership confirms the details.</p>
+        <a class="button" href="/contact">Contact the Church</a>
+      </div>
+    )}
+  </div>
+</section>
+
+<section class="m4-leadership-closing section" aria-labelledby="leadership-closing-heading">
+  <div class="site-container m4-closing-grid">
+    <div>
+      <p class="eyebrow">A shared life</p>
+      <h2 class="section-heading" id="leadership-closing-heading">You can meet the church one conversation at a time.</h2>
+    </div>
+    <div>
+      <p class="m3-lead">Visit on a Sunday, learn the story, or send a question before you arrive.</p>
+      <a class="text-link" href="/visit">Plan Your Visit <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>

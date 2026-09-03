@@ -1,10 +1,10 @@
 ---
-import FoundationPage from "../components/FoundationPage.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EventsContent from "../components/EventsContent.astro";
 import { getCmsContent } from "../lib/cms/content";
 
-const { settings } = await getCmsContent();
+const { events, settings } = await getCmsContent();
 ---
-<BaseLayout title="Events" description="[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Upcoming events will be confirmed before launch.">
-  <FoundationPage title="Events" description="[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Upcoming events will be confirmed before launch." settings={settings} />
+<BaseLayout title="Events" description="See upcoming gatherings and community life at First Baptist Church of Laramie.">
+  <EventsContent events={events} settings={settings} />
 </BaseLayout>

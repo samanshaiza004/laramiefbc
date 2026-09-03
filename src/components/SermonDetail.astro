@@ -1,0 +1,42 @@
+---
+import type { Sermon } from "../lib/cms/types";
+import { churchPhotos } from "../data/church-photos";
+import { formatDate } from "../lib/format";
+import CmsImage from "./CmsImage.astro";
+
+interface Props {
+  sermon: Sermon;
+}
+
+const { sermon } = Astro.props;
+---
+
+<header class="m3-hero m4-detail-hero">
+  <div class="site-container m3-hero-grid">
+    <div class="m3-hero-copy">
+      <p class="eyebrow">{sermon.series?.title ?? "Sermon"}</p>
+      <h1 class="display-heading">{sermon.title}</h1>
+      <p class="m3-hero-lead">{sermon.speaker.name} · {formatDate(sermon.date)}</p>
+    </div>
+    <figure class="m3-hero-photo">
+      <CmsImage source={sermon.thumbnail?.src ?? churchPhotos.gallery[5].source} alt={sermon.thumbnail?.alt ?? churchPhotos.gallery[5].alt} width={sermon.thumbnail?.width} height={sermon.thumbnail?.height} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
+    </figure>
+  </div>
+</header>
+
+<section class="m4-detail section">
+  <div class="site-container m4-detail-grid">
+    <div>
+      <p class="eyebrow">{sermon.scripture ?? "Teaching at First Baptist"}</p>
+      <h2 class="section-heading">Spend time with the message.</h2>
+    </div>
+    <div class="m4-detail-copy">
+      <p>{sermon.description}</p>
+      <div class="m4-detail-actions">
+        {sermon.videoUrl && <a class="button" href={sermon.videoUrl} target="_blank" rel="noopener noreferrer">Watch sermon</a>}
+        {sermon.audioUrl && <a class="button button-secondary" href={sermon.audioUrl} target="_blank" rel="noopener noreferrer">Listen to audio</a>}
+        <a class="text-link" href="/sermons">Back to sermons <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>

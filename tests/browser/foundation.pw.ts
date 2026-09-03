@@ -73,13 +73,52 @@ test.describe("M2 homepage", () => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
 
-    for (const route of ["/", "/visit", "/about", "/contact", "/connect"]) {
+    for (const route of ["/", "/visit", "/about", "/contact", "/connect", "/sermons", "/events", "/leadership", "/give", "/sermons/synthetic-sermon-preview"]) {
       const response = await page.goto(route);
       expect(response?.ok()).toBe(true);
       await expect(page.locator("main#main-content")).toBeVisible();
     }
 
     await context.close();
+  });
+});
+
+test.describe("M4 dynamic content pages", () => {
+  test("gives each M4 route a clear primary heading", async ({ page }) => {
+    const routes = [
+      ["/sermons", "Sermons"],
+      ["/events", "Events"],
+      ["/leadership", "Leadership"],
+      ["/give", "Give"],
+    ] as const;
+
+    for (const [route, heading] of routes) {
+      await page.goto(route);
+      await expect(page.getByRole("heading", { name: heading, level: 1 })).toBeVisible();
+    }
+  });
+
+  test("keeps M4 routes within the viewport on mobile", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 700 });
+
+    for (const route of ["/sermons", "/events", "/leadership", "/give"]) {
+      await page.goto(route);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth), route).toBeLessThanOrEqual(320);
+    }
+  });
+
+  test("has no critical axe violations on M4 routes", async ({ page }) => {
+    for (const route of ["/sermons", "/events", "/leadership", "/give"]) {
+      await page.goto(route);
+      const results = await new AxeBuilder({ page }).analyze();
+      expect(results.violations, route).toEqual([]);
+    }
+  });
+
+  test("links the local sermon fixture to a server-rendered detail page", async ({ page }) => {
+    await page.goto("/sermons");
+    await page.getByRole("link", { name: "Sermon details" }).click();
+    await expect(page.getByRole("heading", { name: "[SYNTHETIC FIXTURE] Sermon preview", level: 1 })).toBeVisible();
   });
 });
 

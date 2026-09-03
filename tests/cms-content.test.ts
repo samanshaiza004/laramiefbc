@@ -17,6 +17,9 @@ describe("CMS source boundary", () => {
     expect(content.aboutPage.values.map((value) => value.heading)).toEqual(expect.arrayContaining(["Biblical Truth", "Love Our Neighbors"]));
     expect(content.aboutPage.beliefs.find((belief) => belief.heading === "Jesus")?.paragraphs[0]).toContain("today — ascended");
     expect(content.aboutPage.values.find((value) => value.heading === "Generosity")?.paragraphs[0]).toContain("life — extending");
+    expect(content.sermons[0]?.speaker.name).toContain("SPEAKER TO BE CONFIRMED");
+    expect(content.events[0]?.title).toContain("SYNTHETIC FIXTURE");
+    expect(content.people).toEqual([]);
   });
 
   test("production cannot select local fixtures", () => {
@@ -28,5 +31,16 @@ describe("CMS source boundary", () => {
   test("production defaults to Sanity instead of silently using fixtures", () => {
     expect(isProductionEnvironment({ NODE_ENV: "production" })).toBe(true);
     expect(getCmsSource({ NODE_ENV: "production" })).toBe("sanity");
+  });
+
+  test("production content loading fails before local fixtures can be selected", async () => {
+    let errorMessage = "";
+    try {
+      await getCmsContent({ NODE_ENV: "production", CMS_SOURCE: "local" });
+    } catch (error) {
+      errorMessage = error instanceof Error ? error.message : String(error);
+    }
+
+    expect(errorMessage).toContain("Production builds must use CMS_SOURCE=sanity");
   });
 });
