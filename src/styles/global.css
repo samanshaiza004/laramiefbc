@@ -242,6 +242,15 @@ a, button, input, textarea, select, summary { outline-offset: 4px; }
 .visit-fact { display: grid; gap: .75rem; border-bottom: var(--border-subtle); padding-block: 1.5rem; }
 .visit-fact h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 400; letter-spacing: -.04em; line-height: .95; }
 .visit-fact p { max-width: 32rem; margin: 0; color: var(--color-muted-foreground); line-height: 1.6; }
+.visit-gatherings { background: var(--color-paper-deep); }
+.visit-gatherings-grid { display: grid; gap: clamp(3rem, 8vw, 8rem); align-items: end; }
+.visit-gatherings-grid > div:first-child { max-width: 33rem; }
+.visit-gathering-list { border-top: var(--border-subtle); }
+.visit-gathering-row { display: grid; gap: .45rem; border-bottom: var(--border-subtle); padding-block: 1.35rem; }
+.visit-gathering-title { margin: 0; font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 3.2rem); font-weight: 400; letter-spacing: -.06em; line-height: .9; }
+.visit-gathering-meta { margin: 0; color: var(--color-brick); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.visit-gathering-detail { margin: .25rem 0 0; color: var(--color-muted-foreground); font-size: .95rem; line-height: 1.5; }
+.visit-communion-note { margin: 1.4rem 0 0; color: var(--color-ink); line-height: 1.5; }
 .visit-welcome { background: var(--color-paper-deep); }
 .visit-welcome-grid { display: grid; align-items: center; gap: clamp(3rem, 8vw, 8rem); }
 .visit-welcome-photo { min-height: 24rem; aspect-ratio: 1.15; margin: 0; overflow: hidden; background: var(--color-ink); }
@@ -348,6 +357,7 @@ a, button, input, textarea, select, summary { outline-offset: 4px; }
   .m3-hero-grid { grid-template-columns: minmax(0, .9fr) minmax(20rem, 1fr); }
   .visit-service-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) minmax(12rem, .75fr); align-items: start; gap: clamp(2rem, 5vw, 5rem); }
   .visit-details-grid { grid-template-columns: minmax(0, .8fr) minmax(20rem, 1fr); }
+  .visit-gatherings-grid { grid-template-columns: minmax(0, .8fr) minmax(20rem, 1fr); }
   .visit-welcome-grid, .connect-community-grid { grid-template-columns: minmax(20rem, 1fr) minmax(0, .85fr); }
   .connect-row { grid-template-columns: minmax(13rem, .7fr) minmax(0, 1fr) auto; }
   .about-hero-grid { grid-template-columns: minmax(0, .85fr) minmax(20rem, 1fr); }
@@ -447,6 +457,11 @@ a, button, input, textarea, select, summary { outline-offset: 4px; }
 .m4-person-copy h3 { margin: 0; font-family: var(--font-display); font-size: clamp(2.3rem, 5vw, 5rem); font-weight: 400; letter-spacing: -.07em; line-height: .82; }
 .m4-person-copy p:not(.m4-note-label) { max-width: 35rem; margin: 1rem 0 0; color: var(--color-muted-foreground); line-height: 1.6; }
 .m4-person-copy .text-link { display: inline-block; margin-top: 1.2rem; }
+.m4-committee-list { margin-top: clamp(3.5rem, 7vw, 7rem); border-top: var(--border-subtle); padding-top: 1.3rem; }
+.m4-committee-list > .eyebrow { margin-bottom: 1.5rem; }
+.m4-committee-row { display: grid; gap: .7rem 2rem; border-bottom: var(--border-subtle); padding-block: 1.25rem; }
+.m4-committee-row h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.8rem, 3.4vw, 3.2rem); font-weight: 400; letter-spacing: -.06em; line-height: .88; }
+.m4-committee-row p { max-width: 42rem; margin: 0; color: var(--color-muted-foreground); line-height: 1.6; }
 .m4-giving { background: var(--color-brick); color: var(--color-paper); }
 .m4-giving .eyebrow { color: var(--color-paper); }
 .m4-giving .m4-detail-copy p { max-width: 35rem; margin: 0; color: var(--color-paper); font-size: 1.1rem; line-height: 1.65; }
@@ -466,6 +481,7 @@ a, button, input, textarea, select, summary { outline-offset: 4px; }
   .m4-featured-grid, .m4-closing-grid, .m4-detail-grid { grid-template-columns: minmax(0, .9fr) minmax(20rem, .75fr); }
   .m4-event-row { grid-template-columns: minmax(11rem, .55fr) minmax(0, 1.2fr) minmax(10rem, .55fr); align-items: start; }
   .m4-person { grid-template-columns: minmax(15rem, .55fr) minmax(0, 1fr); align-items: end; }
+  .m4-committee-row { grid-template-columns: minmax(15rem, .55fr) minmax(0, 1fr); align-items: center; }
 }
 
 @media (max-width: 699px) {

@@ -44,6 +44,19 @@ export interface PageContent {
   description: string;
 }
 
+export interface RecurringGathering {
+  title: string;
+  day: string;
+  time: string;
+  location: string;
+  leader?: string;
+}
+
+export interface VisitPageContent extends PageContent {
+  recurringGatherings: RecurringGathering[];
+  communionNote: string;
+}
+
 export interface ContentSection {
   heading: string;
   paragraphs: string[];
@@ -117,8 +130,10 @@ export interface Person {
   id: string;
   name: string;
   role: string;
+  committeeMemberships: string[];
   bio?: string;
   photo?: CmsImage;
+  photoKey?: string;
   email?: string;
 }
 
@@ -136,7 +151,7 @@ export interface CmsContent {
   source: CmsSource;
   settings: ChurchSettings;
   homepage: PageContent;
-  visitPage: PageContent;
+  visitPage: VisitPageContent;
   aboutPage: AboutPageContent;
   givingPage: PageContent;
   sermons: Sermon[];

@@ -19,7 +19,7 @@ bun run check
 bun test
 bun run test:browser
 bunx playwright install chromium
-SITE_URL=http://localhost:4321 CMS_SOURCE=local SANITY_PROJECT_ID=local-development SANITY_DATASET=production bun run build
+SITE_URL=http://localhost:4321 BUILD_MODE=development CMS_SOURCE=local SANITY_PROJECT_ID=local-development SANITY_DATASET=production bun run build
 ```
 
 Production builds require `SITE_URL`, `SANITY_PROJECT_ID`, `SANITY_DATASET`, and `CMS_SOURCE=sanity`. A production build using local fixtures fails by design.
@@ -34,8 +34,8 @@ The public site is deployed as static HTML on Netlify. The intended content path
 
 The separate Studio in `studio/` is deployed to Sanity and is not embedded in the public application.
 
-The supplied About copy and church photography are ready for staff review, but no mutable sermon, event, ministry, leadership, giving, contact, or service facts are treated as production content until they are published and confirmed in Sanity.
+The supplied About copy, church photography, contact details, Sunday schedule, recurring gatherings, communion practice, and leadership roster are represented in the local preview fixture for staff review. They are not a production source; the live site still requires the corresponding Sanity documents to be published and validated.
 
 ## Current milestone
 
-M4 extends the approved M2 visual system to Sermons, Events, Leadership, and Give. Structured content is fetched through one validated Sanity boundary; local fixtures remain clearly marked for development and are rejected in production. The separate Studio contains singleton page documents and repeatable collections for staff editing.
+M5 hardening is complete; this follow-up content pass adds the supplied contact, schedule, gathering, communion, leadership, committee, and portrait data to the local migration fixture. Structured content is fetched through one validated Sanity boundary; local fixtures remain clearly marked for development and are rejected in production. The separate Studio contains singleton page documents and repeatable collections for staff editing.

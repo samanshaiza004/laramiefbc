@@ -52,6 +52,18 @@ function missingDocumentMessage(key: string): string {
   return `Sanity document "${key}" is missing. Required singleton content must be published before a production build.`;
 }
 
+function removeNullValues(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(removeNullValues);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([, entry]) => entry !== null)
+        .map(([key, entry]) => [key, removeNullValues(entry)]),
+    );
+  }
+  return value;
+}
+
 export async function getCmsContent(overrides?: RuntimeEnv): Promise<ParsedCmsContent> {
   const env = getRuntimeEnv(overrides);
   const source = getCmsSource(env);
@@ -61,7 +73,7 @@ export async function getCmsContent(overrides?: RuntimeEnv): Promise<ParsedCmsCo
   }
 
   const client = createSanityClient(env);
-  const content = await client.fetch<Partial<CmsContent>>(CMS_CONTENT_QUERY);
+  const content = removeNullValues(await client.fetch<unknown>(CMS_CONTENT_QUERY)) as Partial<CmsContent>;
 
   for (const key of ["settings", "homepage", "visitPage", "aboutPage", "givingPage"] as const) {
     if (!content[key]) throw new Error(missingDocumentMessage(key));

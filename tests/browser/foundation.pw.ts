@@ -123,6 +123,36 @@ test.describe("M4 dynamic content pages", () => {
     await expect(page.getByRole("heading", { name: "[SYNTHETIC FIXTURE] Sermon preview", level: 1 })).toBeVisible();
   });
 
+  test("shows the supplied schedule, gatherings, and communion practice", async ({ page }) => {
+    await page.goto("/visit");
+    await expect(page.getByText("Sunday · 9:30–10:30 a.m.", { exact: false })).toBeVisible();
+    await expect(page.getByText("Sunday · 11:00 a.m.–12:00 p.m.", { exact: false })).toBeVisible();
+    await expect(page.getByText("Women’s Bible Study", { exact: true })).toBeVisible();
+    await expect(page.getByText("Men’s Group", { exact: true })).toBeVisible();
+    await expect(page.getByText("Communion is observed on the first Sunday of each month.", { exact: true })).toBeVisible();
+  });
+
+  test("shows the supplied leadership roster, committees, and portraits", async ({ page }) => {
+    await page.goto("/leadership");
+    await expect(page.getByRole("heading", { name: "Lummi Kaping", level: 3 })).toBeVisible();
+    await expect(page.getByText("Senior Pastor", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Ministry Council", level: 3 })).toBeVisible();
+    await expect(page.getByText("Jackie Carter", { exact: true }).last()).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Strategic Planning Committee", level: 3 })).toBeVisible();
+    const portraitAlts = await page.locator("main img").evaluateAll((elements) => elements.map((element) => element.getAttribute("alt")));
+    expect(portraitAlts).toEqual(expect.arrayContaining([
+      "Morley Langdon and his wife Jane Langdon standing together in front of a quilt at First Baptist Church.",
+      "Phyllis Dunbar wearing a Faith T-shirt inside First Baptist Church’s brick fellowship room.",
+      "Jackie Carter wearing glasses and smiling inside First Baptist Church’s brick fellowship room.",
+    ]));
+  });
+
+  test("makes the supplied contact details directly usable", async ({ page }) => {
+    await page.goto("/contact");
+    await expect(page.locator("main").getByRole("link", { name: "307-745-4106" })).toHaveAttribute("href", "tel:+13077454106");
+    await expect(page.locator("main").getByRole("link", { name: "Laramiefirstbaptist@gmail.com" })).toHaveAttribute("href", "mailto:Laramiefirstbaptist@gmail.com");
+  });
+
   test("keeps public internal links resolvable", async ({ page, request }) => {
     const routes = ["/", "/visit", "/about", "/connect", "/contact", "/sermons", "/events", "/leadership", "/give", "/sermons/synthetic-sermon-preview"];
     const internalLinks = new Set<string>();

@@ -1,6 +1,7 @@
 ---
 import type { Person } from "../lib/cms/types";
 import { churchPhotos } from "../data/church-photos";
+import { localLeadershipImages } from "../lib/cms/local-images";
 import CmsImage from "./CmsImage.astro";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const { people } = Astro.props;
+const committeeNames = [...new Set(people.flatMap((person) => person.committeeMemberships))];
 ---
 
 <header class="m3-hero m4-hero">
@@ -33,7 +35,11 @@ const { people } = Astro.props;
       <div class="m4-people-list">
         {people.map((person) => (
           <article class="m4-person">
-            {person.photo && <CmsImage source={person.photo.src} alt={person.photo.alt} width={person.photo.width} height={person.photo.height} sizes="(max-width: 699px) 100vw, 30vw" class="m4-person-photo" />}
+            {person.photo ? (
+              <CmsImage source={person.photo.src} alt={person.photo.alt} width={person.photo.width} height={person.photo.height} sizes="(max-width: 699px) 100vw, 30vw" class="m4-person-photo" />
+            ) : person.photoKey && localLeadershipImages[person.photoKey] ? (
+              <CmsImage source={localLeadershipImages[person.photoKey].source} alt={localLeadershipImages[person.photoKey].alt} sizes="(max-width: 699px) 100vw, 30vw" class="m4-person-photo" />
+            ) : null}
             <div class="m4-person-copy">
               <p class="m4-note-label">{person.role}</p>
               <h3>{person.name}</h3>
@@ -48,6 +54,17 @@ const { people } = Astro.props;
         <h3>Leadership profiles will be added soon.</h3>
         <p>Names, roles, biographies, and photographs will be published after church leadership confirms the details.</p>
         <a class="button" href="/contact">Contact the Church</a>
+      </div>
+    )}
+    {committeeNames.length > 0 && (
+      <div class="m4-committee-list" aria-labelledby="committee-heading">
+        <p class="eyebrow" id="committee-heading">Serving together</p>
+        {committeeNames.map((committeeName) => (
+          <section class="m4-committee-row" aria-labelledby={`committee-${committeeName.toLowerCase().replaceAll(" ", "-")}`}>
+            <h3 id={`committee-${committeeName.toLowerCase().replaceAll(" ", "-")}`}>{committeeName}</h3>
+            <p>{people.filter((person) => person.committeeMemberships.includes(committeeName)).map((person) => person.name).join(", ")}</p>
+          </section>
+        ))}
       </div>
     )}
   </div>

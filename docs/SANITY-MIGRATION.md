@@ -1,11 +1,11 @@
 # Sanity content migration
 
-The public site now has the production content boundary and the separate Studio schema. Migration is intentionally a staff-reviewed step; the local fixtures are synthetic and must not be imported automatically.
+The public site now has the production content boundary and the separate Studio schema. Migration is intentionally a staff-reviewed step; the local fixture includes both supplied church facts and clearly labeled synthetic previews, so it must not be imported automatically.
 
 ## Order of operations
 
 1. Set `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` for the separate `studio/` project.
-2. Publish the five singleton documents using the approved church copy and confirmed contact/service facts: Site settings, Homepage, Visit page, About page, and Giving page.
+2. Publish the five singleton documents using the approved church copy and confirmed contact/service facts: Site settings, Homepage, Visit page, About page, and Giving page. The current handoff supplies 307-745-4106, Laramiefirstbaptist@gmail.com, Sunday Bible Study at 9:30–10:30 a.m., Sunday worship at 11:00 a.m.–12:00 p.m., the two weekly gatherings, communion on the first Sunday of each month, and the 82072 postal code; leadership should confirm these in Studio before launch.
 3. Add and publish people before sermons so sermon speaker references resolve.
 4. Add sermon series, sermons, events, ministries, and announcements only from church-approved source material.
 5. Add meaningful alternative text to every uploaded image. The Studio blocks publishing an image without it.
@@ -16,4 +16,4 @@ The public site now has the production content boundary and the separate Studio 
 
 `Sanity publish → Netlify build hook → Astro fetches published content with useCdn=false → Zod validation → successful static build → atomic deployment`
 
-No fixture-to-Sanity import script is included because the current source contains placeholders and mutable facts that require leadership approval. Once the content is approved, staff can enter it through the explicit Studio collections without carrying over synthetic values.
+No fixture-to-Sanity import script is included because the current source contains both placeholders and supplied mutable facts that require leadership approval. Once the content is approved, staff can enter it through the explicit Studio collections without carrying over synthetic values.

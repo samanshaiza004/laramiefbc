@@ -16,7 +16,7 @@ const { settings } = await getCmsContent();
         <p class="m3-lead">Questions, prayer requests, and first-visit nerves are all good reasons to reach out.</p>
         <address class="contact-details">
           <p>{settings.address.street}<br />{settings.address.locality}, {settings.address.region} {settings.address.postalCode}</p>
-          <p>{settings.phoneDisplay}<br />{settings.email}</p>
+          <p><a href={`tel:${settings.phoneHref}`}>{settings.phoneDisplay}</a><br /><a href={`mailto:${settings.email}`}>{settings.email}</a></p>
         </address>
       </div>
       <ContactForm />

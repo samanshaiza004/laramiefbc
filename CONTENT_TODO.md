@@ -7,6 +7,15 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - Church name requested for this project: First Baptist Church of Laramie.
 - City and state requested for this project: Laramie, Wyoming.
 - Postal code supplied for this project: 82072.
+- Public telephone supplied for this project: 307-745-4106.
+- Public email supplied for this project: Laramiefirstbaptist@gmail.com.
+- Sunday Bible Study supplied for this project: 9:30–10:30 a.m.
+- Sunday worship supplied for this project: 11:00 a.m.–12:00 p.m.
+- Weekly Women’s Bible Study supplied for this project: 10:00 a.m. at Mary Burman’s residence, led by Jane Langdon.
+- Men’s Group supplied for this project: Thursdays at 10:00 a.m. at Ivinson Hospital.
+- Communion supplied for this project: the first Sunday of each month.
+- Leadership roster and committee memberships supplied for this project: Lummi Kaping, Morley Langdon, Jackie Carter, Phyllis Dunbar, Maggie Harrop, Dough Carr, Yeseun, Jane Langdon, Lori Gonzalez, Carol Carr, and John Stoll.
+- Portrait identities supplied for this project: Morley and Jane Langdon together, Phyllis Dunbar, and Jackie Carter.
 
 ## Received website draft
 
@@ -26,11 +35,10 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 
 - Canonical production domain and DNS ownership.
 - Street address and map destination. Confirm that 82072 belongs to the final public mailing address before launch.
-- Main telephone number and public email address.
-- Sunday School, worship, fellowship, and other recurring service times.
 - Time zone and seasonal schedule behavior, if any.
-- Parking, entrances, accessibility, childcare, nursery, children’s ministry, service length, dress expectations, communion, and baptism practices.
-- Current pastor, staff, elders/deacons, ministry leaders, and public biographies.
+- Parking, entrances, accessibility, childcare, nursery, children’s ministry, service length, dress expectations, and baptism practices.
+- Permission to publish Mary Burman’s residence as the Women’s Bible Study location, and any public contact/location guidance for the Men’s Group.
+- Leadership approval of the supplied roster, roles, committee memberships, and public biographies.
 - Leadership approval of the supplied beliefs, values, church history, mission statement, and final public wording.
 - Sermon archive, YouTube channel, series names, speakers, dates, and media permissions.
 - Events, recurring ministry schedules, and cancellation/update process.

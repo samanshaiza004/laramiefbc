@@ -1,8 +1,9 @@
 import type { CmsContent } from "./types";
 
 /**
- * Synthetic foundation content only. These values are intentionally obvious
- * placeholders so they cannot be mistaken for church-approved facts.
+ * Local development content. Supplied church facts are included here for
+ * preview and migration work, while remaining synthetic content is labeled
+ * explicitly so this source cannot be mistaken for production content.
  */
 export const localContent: CmsContent = {
   source: "local",
@@ -11,7 +12,7 @@ export const localContent: CmsContent = {
     shortName: "First Baptist",
     region: "Laramie, Wyoming",
     description: "First Baptist Church is a local Christian church in Laramie, Wyoming. Our mission is to share the good news of Christ’s love — in both word and deed.",
-    footerDescription: "[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Church description will be supplied by church leadership.",
+    footerDescription: "A local church in Laramie, Wyoming, sharing Christ’s love in both word and deed.",
     address: {
       street: "1517 Canby Street",
       locality: "Laramie",
@@ -19,25 +20,31 @@ export const localContent: CmsContent = {
       postalCode: "82072",
       country: "US",
     },
-    phoneDisplay: "[PHONE TO BE CONFIRMED]",
-    phoneHref: "",
-    email: "placeholder@example.invalid",
+    phoneDisplay: "307-745-4106",
+    phoneHref: "+13077454106",
+    email: "Laramiefirstbaptist@gmail.com",
     services: [
       {
-        label: "Sunday School",
+        label: "Bible Study",
         day: "Sunday",
-        time: "[TIME TO BE CONFIRMED]",
-        notes: "[VERIFY WHETHER THIS SERVICE IS CURRENT]",
+        time: "9:30–10:30 a.m.",
+        notes: "Sunday morning · led by Jane Langdon.",
+        schemaDay: "Sunday",
+        schemaOpens: "09:30",
+        schemaCloses: "10:30",
       },
       {
         label: "Worship",
         day: "Sunday",
-        time: "[TIME TO BE CONFIRMED]",
-        notes: "[VERIFY WHETHER THIS SERVICE IS CURRENT]",
+        time: "11:00 a.m.–12:00 p.m.",
+        notes: "Communion on the first Sunday of the month.",
+        schemaDay: "Sunday",
+        schemaOpens: "11:00",
+        schemaCloses: "12:00",
       },
     ],
-    directionsUrl: "https://www.google.com/maps/search/?api=1&query=Laramie%2C%20Wyoming",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=Laramie%2C%20Wyoming",
+    directionsUrl: "https://www.google.com/maps/search/?api=1&query=1517%20Canby%20Street%2C%20Laramie%2C%20WY%2082072",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=1517%20Canby%20Street%2C%20Laramie%2C%20WY%2082072",
     socialLinks: [],
   },
   homepage: {
@@ -46,7 +53,23 @@ export const localContent: CmsContent = {
   },
   visitPage: {
     title: "Plan Your Visit",
-    description: "[SYNTHETIC FIXTURE — VERIFY BEFORE LAUNCH] Visit information will be confirmed by church leadership.",
+    description: "Find Sunday worship, Bible study, and the practical details for visiting First Baptist Church of Laramie.",
+    recurringGatherings: [
+      {
+        title: "Women’s Bible Study",
+        day: "Weekly",
+        time: "10:00 a.m.",
+        location: "Mary Burman’s residence",
+        leader: "Jane Langdon",
+      },
+      {
+        title: "Men’s Group",
+        day: "Thursday",
+        time: "10:00 a.m.",
+        location: "Ivinson Hospital",
+      },
+    ],
+    communionNote: "Communion is observed on the first Sunday of each month.",
   },
   aboutPage: {
     title: "About First Baptist Church",
@@ -170,6 +193,78 @@ export const localContent: CmsContent = {
     },
   ],
   ministries: [],
-  people: [],
+  people: [
+    {
+      id: "local-lummi-kaping",
+      name: "Lummi Kaping",
+      role: "Senior Pastor",
+      committeeMemberships: ["Ministry Council", "Strategic Planning Committee"],
+    },
+    {
+      id: "local-morley-langdon",
+      name: "Morley Langdon",
+      role: "Moderator",
+      committeeMemberships: ["Ministry Council", "Strategic Planning Committee"],
+      photoKey: "morleyAndJane",
+      bio: "Morley serves as Moderator. He and Jane Langdon are part of the church’s shared life in Laramie.",
+    },
+    {
+      id: "local-jackie-carter",
+      name: "Jackie Carter",
+      role: "Church Life and Real Property Chairperson",
+      committeeMemberships: ["Ministry Council"],
+      photoKey: "jackieCarter",
+    },
+    {
+      id: "local-phyllis-dunbar",
+      name: "Phyllis Dunbar",
+      role: "Receiving Treasurer",
+      committeeMemberships: ["Ministry Council", "Strategic Planning Committee"],
+      photoKey: "phyllisDunbar",
+    },
+    {
+      id: "local-maggie-harrop",
+      name: "Maggie Harrop",
+      role: "Church Clerk / Secretary for Ministry Council",
+      committeeMemberships: ["Ministry Council"],
+    },
+    {
+      id: "local-dough-carr",
+      name: "Dough Carr",
+      role: "Book Keeper",
+      committeeMemberships: ["Ministry Council"],
+    },
+    {
+      id: "local-yeseun",
+      name: "Yeseun",
+      role: "Music / Pianist",
+      committeeMemberships: [],
+    },
+    {
+      id: "local-jane-langdon",
+      name: "Jane Langdon",
+      role: "Bible Study Leader",
+      committeeMemberships: [],
+      bio: "Jane leads the Sunday morning Bible Study and the weekly Women’s Bible Study.",
+    },
+    {
+      id: "local-lori-gonzalez",
+      name: "Lori Gonzalez",
+      role: "Ministry Council Member",
+      committeeMemberships: ["Ministry Council"],
+    },
+    {
+      id: "local-carol-carr",
+      name: "Carol Carr",
+      role: "Strategic Planning Committee Member",
+      committeeMemberships: ["Strategic Planning Committee"],
+    },
+    {
+      id: "local-john-stoll",
+      name: "John Stoll",
+      role: "Strategic Planning Committee Member",
+      committeeMemberships: ["Strategic Planning Committee"],
+    },
+  ],
   announcements: [],
 };

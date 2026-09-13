@@ -78,6 +78,12 @@ export const person = defineType({
   fields: [
     defineField({ name: "name", type: "string", validation: (rule) => rule.required() }),
     defineField({ name: "role", type: "string", validation: (rule) => rule.required() }),
+    defineField({
+      name: "committeeMemberships",
+      title: "Committee memberships",
+      type: "array",
+      of: [defineArrayMember({ type: "string" })],
+    }),
     defineField({ name: "bio", type: "array", of: [defineArrayMember({ type: "block" })] }),
     defineField({ name: "photo", type: "image", options: { hotspot: true }, fields: imageFields }),
     defineField({ name: "email", type: "email" }),

@@ -30,8 +30,8 @@ export const churchSettingsSchema = z.object({
   description: z.string().min(1),
   footerDescription: z.string().min(1),
   address: addressSchema,
-  phoneDisplay: z.string(),
-  phoneHref: z.string(),
+  phoneDisplay: z.string().min(1),
+  phoneHref: z.string().min(1),
   email: z.email(),
   services: z.array(serviceTimeSchema),
   directionsUrl: z.url(),
@@ -42,6 +42,19 @@ export const churchSettingsSchema = z.object({
 const pageContentSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
+}).strict();
+
+const recurringGatheringSchema = z.object({
+  title: z.string().min(1),
+  day: z.string().min(1),
+  time: z.string().min(1),
+  location: z.string().min(1),
+  leader: z.string().min(1).optional(),
+}).strict();
+
+const visitPageSchema = pageContentSchema.extend({
+  recurringGatherings: z.array(recurringGatheringSchema),
+  communionNote: z.string().min(1),
 }).strict();
 
 const contentSectionSchema = z.object({
@@ -117,8 +130,10 @@ const personSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   role: z.string().min(1),
+  committeeMemberships: z.array(z.string().min(1)),
   bio: z.string().min(1).optional(),
   photo: cmsImageSchema.optional(),
+  photoKey: z.string().min(1).optional(),
   email: z.email().optional(),
 }).strict();
 
@@ -136,7 +151,7 @@ export const cmsContentSchema = z.object({
   source: z.enum(["local", "sanity"]),
   settings: churchSettingsSchema,
   homepage: pageContentSchema,
-  visitPage: pageContentSchema,
+  visitPage: visitPageSchema,
   aboutPage: aboutPageSchema,
   givingPage: pageContentSchema,
   sermons: z.array(sermonSchema),

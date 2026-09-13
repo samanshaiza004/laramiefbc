@@ -10,20 +10,26 @@ const settingsProjection = /* groq */ `{
   phoneDisplay,
   phoneHref,
   email,
-  services[] { _key, label, day, time, notes, schemaDay, schemaOpens, schemaCloses },
+  services[] { label, day, time, notes, schemaDay, schemaOpens, schemaCloses },
   directionsUrl,
   mapUrl,
-  socialLinks[] { _key, label, url }
+  socialLinks[] { label, url }
 }`;
 
 const pageProjection = /* groq */ `{ title, description }`;
+const visitPageProjection = /* groq */ `{
+  title,
+  description,
+  recurringGatherings[] { title, day, time, location, leader },
+  communionNote
+}`;
 const aboutPageProjection = /* groq */ `{
   title,
   description,
   mission,
-  history[] { _key, heading, paragraphs[] },
-  beliefs[] { _key, heading, paragraphs[] },
-  values[] { _key, heading, paragraphs[] }
+  history[] { heading, paragraphs[] },
+  beliefs[] { heading, paragraphs[] },
+  values[] { heading, paragraphs[] }
 }`;
 
 const imageProjection = /* groq */ `{
@@ -82,6 +88,7 @@ const personProjection = /* groq */ `{
   "id": _id,
   name,
   role,
+  "committeeMemberships": coalesce(committeeMemberships, []),
   "bio": pt::text(bio),
   "photo": photo ${imageProjection},
   email
@@ -93,13 +100,14 @@ const announcementProjection = /* groq */ `{
   summary,
   publishedAt,
   expiresAt,
-  "priority": coalesce(priority, "normal")
+  "priority": coalesce(priority, "normal"),
+  href
 }`;
 
 export const CMS_CONTENT_QUERY = defineQuery(/* groq */ `{
   "settings": *[_id == "siteSettings"][0] ${settingsProjection},
   "homepage": *[_id == "homePage"][0] ${pageProjection},
-  "visitPage": *[_id == "visitPage"][0] ${pageProjection},
+  "visitPage": *[_id == "visitPage"][0] ${visitPageProjection},
   "aboutPage": *[_id == "aboutPage"][0] ${aboutPageProjection},
   "givingPage": *[_id == "givingPage"][0] ${pageProjection},
   "sermonSeries": *[_type == "sermonSeries"] | order(title asc) ${seriesProjection},

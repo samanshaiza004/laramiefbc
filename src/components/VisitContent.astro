@@ -1,10 +1,10 @@
 ---
-import type { ChurchSettings, PageContent } from "../lib/cms/types";
+import type { ChurchSettings, VisitPageContent } from "../lib/cms/types";
 import CmsImage from "./CmsImage.astro";
 import { churchPhotos } from "../data/church-photos";
 
 interface Props {
-  visitPage: PageContent;
+  visitPage: VisitPageContent;
   settings: ChurchSettings;
 }
 
@@ -25,7 +25,11 @@ const practicalDetails = [
   },
   {
     heading: "What to expect",
-    copy: "Worship format, approximate service length, dress expectations, communion, and baptism practices will be confirmed before launch.",
+    copy: "Worship format, approximate service length, dress expectations, and baptism practices will be confirmed before launch.",
+  },
+  {
+    heading: "Communion",
+    copy: "Communion is observed on the first Sunday of each month.",
   },
 ] as const;
 ---
@@ -48,7 +52,7 @@ const practicalDetails = [
     <div class="visit-service-intro">
       <p class="eyebrow">This Sunday</p>
       <h2 class="section-heading" id="visit-service-heading">Start here.</h2>
-      <p class="m3-lead">Sunday School and worship are the first places to look for a Sunday at First Baptist.</p>
+      <p class="m3-lead">Bible Study and worship are the first places to look for a Sunday at First Baptist.</p>
     </div>
     <div class="visit-service-list">
       {settings.services.map((service) => (
@@ -67,6 +71,29 @@ const practicalDetails = [
         <a class="text-link" href={settings.mapUrl}>Open map <span aria-hidden="true">↗</span></a>
       </div>
     </address>
+  </div>
+</section>
+
+<section class="visit-gatherings section" aria-labelledby="visit-gatherings-heading">
+  <div class="site-container visit-gatherings-grid">
+    <div>
+      <p class="eyebrow">During the week</p>
+      <h2 class="section-heading" id="visit-gatherings-heading">There is room around the table.</h2>
+      <p class="m3-lead">These recurring gatherings are a simple way to meet people and spend time together.</p>
+    </div>
+    <div class="visit-gathering-list">
+      {visitPage.recurringGatherings.map((gathering) => (
+        <article class="visit-gathering-row">
+          <p class="visit-gathering-title">{gathering.title}</p>
+          <p class="visit-gathering-meta">{gathering.day} · {gathering.time}</p>
+          <p class="visit-gathering-detail">
+            {gathering.location}
+            {gathering.leader && <><br />Led by {gathering.leader}</>}
+          </p>
+        </article>
+      ))}
+      <p class="visit-communion-note"><strong>Communion:</strong> {visitPage.communionNote}</p>
+    </div>
   </div>
 </section>
 

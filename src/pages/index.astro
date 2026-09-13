@@ -5,6 +5,7 @@ import { churchPhotos } from "../data/church-photos";
 import { getCmsContent } from "../lib/cms/content";
 
 const { aboutPage, homepage, settings } = await getCmsContent();
+const worshipService = settings.services.find((service) => service.label.toLowerCase() === "worship") ?? settings.services[0];
 ---
 
 <BaseLayout title={homepage.title} description={homepage.description}>
@@ -181,7 +182,7 @@ const { aboutPage, homepage, settings } = await getCmsContent();
       </div>
       <div class="home-visit-details">
         <p>{settings.address.street}<br />{settings.address.locality}, {settings.address.region} {settings.address.postalCode}</p>
-        <p>{settings.services[0]?.day} · {settings.services[0]?.time}</p>
+        {worshipService && <p>{worshipService.label}: {worshipService.day} · {worshipService.time}</p>}
         <a class="button button-on-dark" href="/visit">Plan Your Visit</a>
       </div>
     </div>

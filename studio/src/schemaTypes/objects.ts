@@ -46,6 +46,19 @@ export const serviceTime = defineType({
   ],
 });
 
+export const recurringGathering = defineType({
+  name: "recurringGathering",
+  title: "Recurring gathering",
+  type: "object",
+  fields: [
+    defineField({ name: "title", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "day", title: "Day or frequency", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "time", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "location", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "leader", type: "string" }),
+  ],
+});
+
 export const socialLink = defineType({
   name: "socialLink",
   title: "Social link",

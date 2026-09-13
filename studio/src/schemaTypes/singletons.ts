@@ -40,7 +40,24 @@ function pageSingleton(name: string, title: string, icon = DocumentIcon) {
 }
 
 export const homePage = pageSingleton("homePage", "Homepage", HomeIcon);
-export const visitPage = pageSingleton("visitPage", "Visit page");
+export const visitPage = defineType({
+  name: "visitPage",
+  title: "Visit page",
+  icon: DocumentIcon,
+  type: "document",
+  fields: [
+    defineField({ name: "title", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "description", type: "text", rows: 3, validation: (rule) => rule.required() }),
+    defineField({
+      name: "recurringGatherings",
+      title: "Recurring gatherings",
+      type: "array",
+      of: [defineArrayMember({ type: "recurringGathering" })],
+    }),
+    defineField({ name: "communionNote", title: "Communion note", type: "string", validation: (rule) => rule.required() }),
+    seoField,
+  ],
+});
 export const givingPage = pageSingleton("givingPage", "Giving page");
 
 export const aboutPage = defineType({
