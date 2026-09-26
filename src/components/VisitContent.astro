@@ -13,19 +13,19 @@ const { visitPage, settings } = Astro.props;
 const practicalDetails = [
   {
     heading: "Parking",
-    copy: "Parking guidance will be confirmed by church leadership before launch.",
+    copy: "For current parking guidance, please call or email the church before your visit.",
   },
   {
     heading: "Entrances and accessibility",
-    copy: "Entrance and accessibility details will be confirmed before launch so this page can give you dependable directions.",
+    copy: "Please contact the church before you arrive for current entrance and accessibility information.",
   },
   {
     heading: "Children and nursery",
-    copy: "Children’s ministry and nursery availability will be confirmed before launch.",
+    copy: "Call or email ahead of Sunday to ask about children’s ministry and nursery availability.",
   },
   {
     heading: "What to expect",
-    copy: "Worship format, approximate service length, dress expectations, and baptism practices will be confirmed before launch.",
+    copy: "For details about worship, service length, dress, or baptism, please contact the church before your visit.",
   },
   {
     heading: "Communion",
@@ -39,7 +39,7 @@ const practicalDetails = [
     <div class="m3-hero-copy">
       <p class="eyebrow">Plan Your Visit</p>
       <h1 class="display-heading">{visitPage.title}</h1>
-      <p class="m3-hero-lead">Start with the details you need, then come as you are. We’ll keep making this page more useful as the church confirms each practical detail.</p>
+      <p class="m3-hero-lead">Start with the Sunday schedule, then come as you are. If you have a practical question, call or email before you arrive.</p>
     </div>
     <figure class="m3-hero-photo">
       <CmsImage source={churchPhotos.hero.source} alt={churchPhotos.hero.alt} sizes="(max-width: 699px) 100vw, 50vw" class="m3-photo-image" />
@@ -102,7 +102,7 @@ const practicalDetails = [
     <div class="visit-details-intro">
       <p class="eyebrow">Before you arrive</p>
       <h2 class="section-heading" id="visit-details-heading">Clear answers matter.</h2>
-      <p class="m3-lead">We don’t want a first visit to feel like a test. These are the questions we’re making sure to answer well.</p>
+      <p class="m3-lead">We don’t want a first visit to feel like a test. Contact us if you need details before you arrive.</p>
     </div>
     <div class="visit-fact-list">
       {practicalDetails.map((detail) => (

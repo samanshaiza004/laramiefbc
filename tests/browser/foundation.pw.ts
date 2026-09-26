@@ -6,7 +6,7 @@ test.describe("M2 homepage", () => {
     await page.goto("/");
     await expect(page.locator("main#main-content")).toBeVisible();
     await expect(page.getByRole("link", { name: "Plan Your Visit" }).first()).toHaveAttribute("href", "/visit");
-    await expect(page.getByRole("link", { name: "Watch Latest Sermon" })).toHaveAttribute("href", "/sermons");
+    await expect(page.getByRole("link", { name: "Explore Sermons" })).toHaveAttribute("href", "/sermons");
 
     await page.locator(".skip-link").focus();
     await page.keyboard.press("Enter");

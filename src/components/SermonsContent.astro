@@ -38,14 +38,14 @@ const archive = featuredSermon ? sermons.filter((sermon) => sermon.id !== featur
         <SermonCard sermon={featuredSermon} featured />
         <div class="m4-featured-note">
           <p class="m4-note-label">First Baptist Church</p>
-          <p>Our sermon archive will grow here as recordings and service details are confirmed. Every entry is structured so you can find the speaker, date, Scripture, and the clearest way to listen.</p>
+          <p>Each sermon includes its speaker, date, Scripture, and the clearest available way to watch or listen.</p>
           <a class="button" href="/visit">Plan Your Visit</a>
         </div>
       </div>
     ) : (
       <div class="m4-empty-state">
-        <h3>Sermons are on their way.</h3>
-        <p>The sermon archive is being prepared. In the meantime, you can join us in person or ask the church a question.</p>
+        <h3>No sermons are available to stream here right now.</h3>
+        <p>Join us for Sunday worship or contact the church to ask about the latest teaching.</p>
         <a class="button" href="/contact">Contact the Church</a>
       </div>
     )}
