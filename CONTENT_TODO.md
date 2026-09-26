@@ -24,17 +24,18 @@ This file is a launch gate. Bracketed values in local fixtures are synthetic and
 - The history opening now distinguishes Laramie’s 1868 founding from First Baptist Church’s 1870 founding, per leadership direction.
 - The supplied copy is ready to migrate into Sanity, but production still requires confirming the published document, current leadership/location claims, and all mutable visitor information.
 - The supplied photo set is now implemented in the first homepage version: the wide exterior leads the hero, a shared meal supports the newcomer welcome, a church-family portrait accompanies the Laramie history, and ten additional photographs form the church-life gallery.
-- M4 now includes structured Studio collections for sermons, sermon series, events, ministries, people, and announcements. No local dynamic fixture is a verified sermon, event, ministry, or leadership record.
+- M4 now includes structured Studio collections for sermons, sermon series, events, ministries, people, and announcements. No local dynamic fixture is a verified sermon, event, or ministry record. The leadership roster and memberships were supplied for the site; church approval remains pending.
 
 ## Probable but unverified
 
 - Existing public references may contain an address, service schedule, leadership information, giving destination, or media links. Treat each as research only until church leadership confirms it.
+- The current ABCRM church directory lists “1517 E. Canby St., Laramie, WY 82072,” matching the supplied ZIP. This address is being used provisionally in settings and directions pending leadership confirmation.
 - The church may have an existing domain or social accounts. Do not make any unresolved or compromised domain canonical.
 
 ## Missing or requiring confirmation
 
 - Canonical production domain and DNS ownership.
-- Street address and map destination. Confirm that 82072 belongs to the final public mailing address before launch.
+- Leadership confirmation of the street address and map destination. Confirm that 82072 belongs to the final public mailing address before launch.
 - Time zone and seasonal schedule behavior, if any.
 - Parking, entrances, accessibility, childcare, nursery, children’s ministry, service length, dress expectations, and baptism practices.
 - Permission to publish Mary Burman’s residence as the Women’s Bible Study location, and any public contact/location guidance for the Men’s Group.

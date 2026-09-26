@@ -14,7 +14,7 @@ export const localContent: CmsContent = {
     description: "First Baptist Church is a local Christian church in Laramie, Wyoming. Our mission is to share the good news of Christ’s love — in both word and deed.",
     footerDescription: "A local church in Laramie, Wyoming, sharing Christ’s love in both word and deed.",
     address: {
-      street: "1517 Canby Street",
+      street: "1517 E. Canby St.",
       locality: "Laramie",
       region: "WY",
       postalCode: "82072",
@@ -43,8 +43,8 @@ export const localContent: CmsContent = {
         schemaCloses: "12:00",
       },
     ],
-    directionsUrl: "https://www.google.com/maps/search/?api=1&query=1517%20Canby%20Street%2C%20Laramie%2C%20WY%2082072",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=1517%20Canby%20Street%2C%20Laramie%2C%20WY%2082072",
+    directionsUrl: "https://www.google.com/maps/search/?api=1&query=1517%20E.%20Canby%20St.%2C%20Laramie%2C%20WY%2082072",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=1517%20E.%20Canby%20St.%2C%20Laramie%2C%20WY%2082072",
     socialLinks: [],
   },
   homepage: {

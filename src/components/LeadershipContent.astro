@@ -10,6 +10,11 @@ interface Props {
 
 const { people } = Astro.props;
 const committeeNames = [...new Set(people.flatMap((person) => person.committeeMemberships))];
+const suppliedPortraits: Record<string, string> = {
+  "Morley Langdon": "morleyAndJane",
+  "Phyllis Dunbar": "phyllisDunbar",
+  "Jackie Carter": "jackieCarter",
+};
 ---
 
 <header class="m3-hero m4-hero">
@@ -33,21 +38,26 @@ const committeeNames = [...new Set(people.flatMap((person) => person.committeeMe
     </div>
     {people.length > 0 ? (
       <div class="m4-people-list">
-        {people.map((person) => (
-          <article class="m4-person">
-            {person.photo ? (
-              <CmsImage source={person.photo.src} alt={person.photo.alt} width={person.photo.width} height={person.photo.height} sizes="(max-width: 699px) 100vw, 30vw" class="m4-person-photo" />
-            ) : person.photoKey && localLeadershipImages[person.photoKey] ? (
-              <CmsImage source={localLeadershipImages[person.photoKey].source} alt={localLeadershipImages[person.photoKey].alt} sizes="(max-width: 699px) 100vw, 30vw" class="m4-person-photo" />
-            ) : null}
-            <div class="m4-person-copy">
-              <p class="m4-note-label">{person.role}</p>
-              <h3>{person.name}</h3>
-              {person.bio && <p>{person.bio}</p>}
-              {person.email && <a class="text-link" href={`mailto:${person.email}`}>Email {person.name} <span aria-hidden="true">↗</span></a>}
-            </div>
-          </article>
-        ))}
+        {people.map((person) => {
+          const portraitKey = person.photoKey ?? suppliedPortraits[person.name];
+          const portrait = portraitKey ? localLeadershipImages[portraitKey] : undefined;
+
+          return (
+            <article class="m4-person">
+              {person.photo ? (
+                <CmsImage source={person.photo.src} alt={person.photo.alt} width={person.photo.width} height={person.photo.height} sizes="(max-width: 699px) 100vw, 30vw" class="m4-person-photo" />
+              ) : portrait ? (
+                <CmsImage source={portrait.source} alt={portrait.alt} sizes="(max-width: 699px) 100vw, 30vw" class="m4-person-photo" />
+              ) : null}
+              <div class="m4-person-copy">
+                <p class="m4-note-label">{person.role}</p>
+                <h3>{person.name}</h3>
+                {person.bio && <p>{person.bio}</p>}
+                {person.email && <a class="text-link" href={`mailto:${person.email}`}>Email {person.name} <span aria-hidden="true">↗</span></a>}
+              </div>
+            </article>
+          );
+        })}
       </div>
     ) : (
       <div class="m4-empty-state">
