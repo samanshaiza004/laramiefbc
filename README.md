@@ -32,7 +32,10 @@ The public site is deployed as static HTML on Netlify. The intended content path
 
 `Sanity publish → Netlify build hook → Astro fetches and validates → successful build → atomic deployment`
 
+The Studio is hosted, but the Sanity-to-Netlify build hook is not configured yet. Sanity edits are saved in the dataset; they will appear on the public static site after a Netlify build until that hook is added.
+
 The separate Studio in `studio/` is deployed to Sanity and is not embedded in the public application.
+Editors can open the hosted Studio at [fbclaramie.sanity.studio](https://fbclaramie.sanity.studio/). Access requires signing in with a Sanity account that is a member of the project. Deploy Studio updates with `bun run studio:deploy`; its Sanity app ID is pinned in `studio/sanity.cli.ts`.
 
 The supplied About copy, church photography, contact details, Sunday schedule, recurring gatherings, communion practice, and leadership roster are represented in the local preview fixture for staff review. They are not a production source; the live site still requires the corresponding Sanity documents to be published and validated.
 

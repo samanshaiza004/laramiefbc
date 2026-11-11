@@ -10,7 +10,7 @@ const dataset = process.env.SANITY_STUDIO_DATASET ?? process.env.SANITY_DATASET 
 export default defineConfig({
   name: "first_baptist_laramie",
   title: "First Baptist Church of Laramie",
-  projectId: projectId ?? "replace-with-sanity-project-id",
+  projectId: projectId ?? "7mbbnclt",
   dataset,
   plugins: [structureTool({ structure: studioStructure }), visionTool()],
   schema: { types: schemaTypes },
