@@ -28,11 +28,11 @@ The contact function requires the server-only `CONTACT_TO_EMAIL`, `CONTACT_FROM_
 
 ## Publishing model
 
-The public site is deployed as static HTML on Netlify. The intended content path is:
+The public site is deployed as static HTML on Netlify. The content publishing path is:
 
 `Sanity publish → Netlify build hook → Astro fetches and validates → successful build → atomic deployment`
 
-The Studio is hosted, but the Sanity-to-Netlify build hook is not configured yet. Sanity edits are saved in the dataset; they will appear on the public static site after a Netlify build until that hook is added.
+The `Netlify production rebuild` webhook is enabled for the `production` dataset. It triggers the Netlify `main` build when published CMS documents are created, updated, or deleted; draft-only edits do not trigger builds. The webhook URL is stored in Sanity and Netlify and must not be committed to this repository.
 
 The separate Studio in `studio/` is deployed to Sanity and is not embedded in the public application.
 Editors can open the hosted Studio at [fbclaramie.sanity.studio](https://fbclaramie.sanity.studio/). Access requires signing in with a Sanity account that is a member of the project. Deploy Studio updates with `bun run studio:deploy`; its Sanity app ID is pinned in `studio/sanity.cli.ts`.
