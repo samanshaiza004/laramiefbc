@@ -11,6 +11,7 @@ const settingsProjection = /* groq */ `{
   phoneHref,
   email,
   services[] { label, day, time, notes, schemaDay, schemaOpens, schemaCloses },
+  fellowship { label, day, time, notes },
   directionsUrl,
   mapUrl,
   socialLinks[] { label, url }
@@ -29,7 +30,30 @@ const aboutPageProjection = /* groq */ `{
   mission,
   history[] { heading, paragraphs[] },
   beliefs[] { heading, paragraphs[] },
-  values[] { heading, paragraphs[] }
+  values[] { heading, paragraphs[] },
+  denominationalAffiliation {
+    heading,
+    churchMembership,
+    introduction,
+    sourceUrl,
+    traditionParagraphs[],
+    factsIntroduction,
+    facts[] { heading, statement, explanation }
+  }
+}`;
+
+const missionSectionProjection = /* groq */ `{ heading, paragraphs[], listItems[] }`;
+const missionsPageProjection = /* groq */ `{
+  title,
+  description,
+  heroHeading,
+  introduction,
+  communitySections[] ${missionSectionProjection},
+  campWyobaSections[] ${missionSectionProjection},
+  offeringsIntroduction,
+  specialOfferings[] { name, season, purpose },
+  womenInMinistryIntroduction,
+  womenInMinistrySections[] ${missionSectionProjection}
 }`;
 
 const imageProjection = /* groq */ `{
@@ -109,6 +133,7 @@ export const CMS_CONTENT_QUERY = defineQuery(/* groq */ `{
   "homepage": *[_id == "homePage"][0] ${pageProjection},
   "visitPage": *[_id == "visitPage"][0] ${visitPageProjection},
   "aboutPage": *[_id == "aboutPage"][0] ${aboutPageProjection},
+  "missionsPage": *[_id == "missionsPage"][0] ${missionsPageProjection},
   "givingPage": *[_id == "givingPage"][0] ${pageProjection},
   "sermonSeries": *[_type == "sermonSeries"] | order(title asc) ${seriesProjection},
   "sermons": *[_type == "sermon"] | order(date desc) ${sermonProjection},

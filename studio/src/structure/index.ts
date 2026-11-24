@@ -14,6 +14,7 @@ export const studioStructure: StructureResolver = (S) =>
       singleton(S, "homePage", "Homepage"),
       singleton(S, "visitPage", "Visit page"),
       singleton(S, "aboutPage", "About page"),
+      singleton(S, "missionsPage", "Missions and ministries"),
       singleton(S, "givingPage", "Giving page"),
       S.divider(),
       S.listItem().title("Sermons").child(S.documentTypeList("sermon").title("Sermons")),

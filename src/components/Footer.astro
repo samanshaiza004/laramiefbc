@@ -33,7 +33,10 @@ const contactEmailIsPlaceholder = settings.email.endsWith(".invalid");
       <ul class="footer-list">
         {settings.phoneHref ? <li><a href={`tel:${settings.phoneHref}`}>{settings.phoneDisplay}</a></li> : <li>{settings.phoneDisplay}</li>}
         {contactEmailIsPlaceholder ? <li>{settings.email}</li> : <li><a href={`mailto:${settings.email}`}>{settings.email}</a></li>}
-        {navigation.filter((item) => item.href !== "/").slice(0, 4).map((item) => <li><a href={item.href}>{item.href === "/visit" ? "Plan Your Visit" : item.label}</a></li>)}
+        {navigation.filter((item) => item.href !== "/").slice(0, 5).map((item) => <li><a href={item.href}>{item.href === "/visit" ? "Plan Your Visit" : item.label}</a></li>)}
+        {settings.socialLinks.map((socialLink) => (
+          <li><a href={socialLink.url} target="_blank" rel="noopener noreferrer">Follow us on {socialLink.label}</a></li>
+        ))}
       </ul>
     </div>
   </div>

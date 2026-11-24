@@ -34,6 +34,7 @@ export const churchSettingsSchema = z.object({
   phoneHref: z.string().min(1),
   email: z.email(),
   services: z.array(serviceTimeSchema),
+  fellowship: serviceTimeSchema,
   directionsUrl: z.url(),
   mapUrl: z.url(),
   socialLinks: z.array(socialLinkSchema),
@@ -62,11 +63,49 @@ const contentSectionSchema = z.object({
   paragraphs: z.array(z.string().min(1)).min(1),
 }).strict();
 
+const denominationalFactSchema = z.object({
+  heading: z.string().min(1),
+  statement: z.string().min(1),
+  explanation: z.string().min(1),
+}).strict();
+
+const denominationalAffiliationSchema = z.object({
+  heading: z.string().min(1),
+  churchMembership: z.string().min(1),
+  introduction: z.string().min(1),
+  sourceUrl: z.url(),
+  traditionParagraphs: z.array(z.string().min(1)).min(1),
+  factsIntroduction: z.string().min(1),
+  facts: z.array(denominationalFactSchema).length(10),
+}).strict();
+
 const aboutPageSchema = pageContentSchema.extend({
   mission: z.string().min(1),
   history: z.array(contentSectionSchema).min(1),
   beliefs: z.array(contentSectionSchema).min(1),
   values: z.array(contentSectionSchema).min(1),
+  denominationalAffiliation: denominationalAffiliationSchema,
+}).strict();
+
+const missionSectionSchema = contentSectionSchema.extend({
+  listItems: z.array(z.string().min(1)).optional(),
+}).strict();
+
+const specialOfferingSchema = z.object({
+  name: z.string().min(1),
+  season: z.string().min(1),
+  purpose: z.string().min(1),
+}).strict();
+
+const missionsPageSchema = pageContentSchema.extend({
+  heroHeading: z.string().min(1),
+  introduction: z.string().min(1),
+  communitySections: z.array(missionSectionSchema).min(1),
+  campWyobaSections: z.array(missionSectionSchema).min(1),
+  offeringsIntroduction: z.string().min(1),
+  specialOfferings: z.array(specialOfferingSchema).min(1),
+  womenInMinistryIntroduction: z.string().min(1),
+  womenInMinistrySections: z.array(missionSectionSchema).min(1),
 }).strict();
 
 const cmsImageSchema = z.object({
@@ -153,6 +192,7 @@ export const cmsContentSchema = z.object({
   homepage: pageContentSchema,
   visitPage: visitPageSchema,
   aboutPage: aboutPageSchema,
+  missionsPage: missionsPageSchema,
   givingPage: pageContentSchema,
   sermons: z.array(sermonSchema),
   sermonSeries: z.array(sermonSeriesSchema),

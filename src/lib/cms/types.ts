@@ -34,6 +34,7 @@ export interface ChurchSettings {
   phoneHref: string;
   email: string;
   services: ServiceTime[];
+  fellowship: ServiceTime;
   directionsUrl: string;
   mapUrl: string;
   socialLinks: SocialLink[];
@@ -62,11 +63,49 @@ export interface ContentSection {
   paragraphs: string[];
 }
 
+export interface DenominationalFact {
+  heading: string;
+  statement: string;
+  explanation: string;
+}
+
+export interface DenominationalAffiliation {
+  heading: string;
+  churchMembership: string;
+  introduction: string;
+  sourceUrl: string;
+  traditionParagraphs: string[];
+  factsIntroduction: string;
+  facts: DenominationalFact[];
+}
+
 export interface AboutPageContent extends PageContent {
   mission: string;
   history: ContentSection[];
   beliefs: ContentSection[];
   values: ContentSection[];
+  denominationalAffiliation: DenominationalAffiliation;
+}
+
+export interface MissionSection extends ContentSection {
+  listItems?: string[];
+}
+
+export interface SpecialOffering {
+  name: string;
+  season: string;
+  purpose: string;
+}
+
+export interface MissionsPageContent extends PageContent {
+  heroHeading: string;
+  introduction: string;
+  communitySections: MissionSection[];
+  campWyobaSections: MissionSection[];
+  offeringsIntroduction: string;
+  specialOfferings: SpecialOffering[];
+  womenInMinistryIntroduction: string;
+  womenInMinistrySections: MissionSection[];
 }
 
 export interface CmsImage {
@@ -153,6 +192,7 @@ export interface CmsContent {
   homepage: PageContent;
   visitPage: VisitPageContent;
   aboutPage: AboutPageContent;
+  missionsPage: MissionsPageContent;
   givingPage: PageContent;
   sermons: Sermon[];
   sermonSeries: SermonSeries[];

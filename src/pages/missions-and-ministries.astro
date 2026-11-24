@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MissionsContent from "../components/MissionsContent.astro";
+import { getCmsContent } from "../lib/cms/content";
+
+const { missionsPage, settings } = await getCmsContent();
+---
+
+<BaseLayout title={missionsPage.title} description={missionsPage.description}>
+  <MissionsContent missionsPage={missionsPage} email={settings.email} />
+</BaseLayout>

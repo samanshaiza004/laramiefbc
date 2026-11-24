@@ -1,12 +1,13 @@
 import { announcement, event, ministry, person, sermon, sermonSeries } from "./collections";
-import { address, contentSection, pageReference, recurringGathering, richText, seo, serviceTime, socialLink } from "./objects";
-import { aboutPage, givingPage, homePage, siteSettings, visitPage } from "./singletons";
+import { address, contentSection, denominationalFact, missionSection, pageReference, recurringGathering, richText, seo, serviceTime, socialLink, specialOffering } from "./objects";
+import { aboutPage, givingPage, homePage, missionsPage, siteSettings, visitPage } from "./singletons";
 
 export const schemaTypes = [
   siteSettings,
   homePage,
   visitPage,
   aboutPage,
+  missionsPage,
   givingPage,
   sermon,
   sermonSeries,
@@ -17,9 +18,12 @@ export const schemaTypes = [
   seo,
   address,
   serviceTime,
+  missionSection,
+  specialOffering,
   recurringGathering,
   socialLink,
   contentSection,
+  denominationalFact,
   pageReference,
   richText,
 ];

@@ -70,4 +70,29 @@ const { aboutPage } = Astro.props;
       ))}
     </div>
   </section>
+
+  <section class="site-container denominational-section" aria-labelledby="denomination-heading">
+    <div class="about-section-header">
+      <p class="eyebrow">American Baptist Churches USA</p>
+      <h2 class="section-heading" id="denomination-heading">{aboutPage.denominationalAffiliation.heading}</h2>
+    </div>
+    <div class="denominational-intro mt-12">
+      <p class="denominational-membership">{aboutPage.denominationalAffiliation.churchMembership}</p>
+      <p>{aboutPage.denominationalAffiliation.introduction} <a href={aboutPage.denominationalAffiliation.sourceUrl}>Read the source at American Baptist Churches USA.</a></p>
+      <h3>10 Facts About American Baptists</h3>
+      {aboutPage.denominationalAffiliation.traditionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+      <p>{aboutPage.denominationalAffiliation.factsIntroduction}</p>
+    </div>
+    <ol class="distinctives-list">
+      {aboutPage.denominationalAffiliation.facts.map((fact) => (
+        <li>
+          <article>
+            <h3>{fact.heading}</h3>
+            <p class="distinctive-statement">{fact.statement}</p>
+            <p>{fact.explanation}</p>
+          </article>
+        </li>
+      ))}
+    </ol>
+  </section>
 </div>

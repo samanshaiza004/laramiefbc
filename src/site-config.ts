@@ -8,6 +8,7 @@ export const navigation = [
   { label: "Home", href: "/" },
   { label: "Visit", href: "/visit" },
   { label: "About", href: "/about" },
+  { label: "Missions and Ministries", href: "/missions-and-ministries" },
   { label: "Leadership", href: "/leadership" },
   { label: "Connect", href: "/connect" },
   { label: "Sermons", href: "/sermons" },

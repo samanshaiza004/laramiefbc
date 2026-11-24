@@ -43,9 +43,15 @@ export const localContent: CmsContent = {
         schemaCloses: "12:00",
       },
     ],
+    fellowship: {
+      label: "Fellowship",
+      day: "Sunday",
+      time: "12:00–12:30 p.m.",
+      notes: "Light refreshments, conversation, and connection. Visitors welcome!",
+    },
     directionsUrl: "https://www.google.com/maps/search/?api=1&query=1517%20E.%20Canby%20St.%2C%20Laramie%2C%20WY%2082072",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=1517%20E.%20Canby%20St.%2C%20Laramie%2C%20WY%2082072",
-    socialLinks: [],
+    socialLinks: [{ label: "Facebook", url: "https://www.facebook.com/LaramieFirstBaptist/" }],
   },
   homepage: {
     title: "First Baptist Church of Laramie",
@@ -163,6 +169,139 @@ export const localContent: CmsContent = {
       { heading: "Generosity", paragraphs: ["We practice generosity in every area of life — extending grace, love, time, and resources for the good of others."] },
       { heading: "Love Our Neighbors", paragraphs: ["We love the people around us — those beside us, across the street, and throughout our community — because every person bears God’s image."] },
       { heading: "Simple but Meaningful", paragraphs: ["We value simplicity that leads to depth, choosing realistic expectations and practices that help us focus on what truly matters."] },
+    ],
+    denominationalAffiliation: {
+      heading: "Our denominational affiliation",
+      churchMembership: "First Baptist Church is a member of American Baptist Churches USA, Rocky Mountain Region.",
+      introduction: "Here are 10 essential facts about our American Baptist heritage.",
+      sourceUrl: "https://www.abc-usa.org/10facts",
+      traditionParagraphs: [
+        "The 1.3-million members and approximately 5,000 congregations of American Baptist Churches USA share with more than 42 million Baptists around the world a common tradition begun in the early 17th century. That tradition has emphasized the Lordship and atoning sacrifice of Jesus Christ, believers’ baptism, the competency of all believers to be in direct relationship with God and to interpret Scripture, the importance of the local church, the assurance of freedom in worship and opinion, and the need to be Christ’s witnesses within society.",
+      ],
+      factsIntroduction: "The following facts are representative of the tradition and practice of American Baptists.",
+      facts: [
+        {
+          heading: "Jesus Christ is Lord and Scripture is our authority",
+          statement: "American Baptists believe that Jesus Christ is Lord and Savior, and that the Bible is the divinely inspired word of God that serves as the final written authority for living out the Christian faith.",
+          explanation: "American Baptists celebrate the fact that belief in Jesus Christ assures salvation and eternal fellowship with a loving God. The events of the first Easter week are the cornerstones of our faith: the death of Christ, in which He took upon Himself the sin of the world, and the Resurrection, which gave proof of His triumph over sin and death. Holy Scripture always has been for American Baptists the authoritative and trustworthy guide for knowing and serving the God who is revealed as Creator, Savior and Advocate.",
+        },
+        {
+          heading: "The local church is central to mission",
+          statement: "For American Baptists the local church is the fundamental unit of mission in denominational life.",
+          explanation: "Baptist roots date back four centuries to a people seeking the opportunity to worship God as individual members of freely organized and freely functioning local churches. Baptists always have maintained the need for autonomous congregations, responsible for articulating their own doctrine, style of worship and mission.",
+        },
+        {
+          heading: "Believers’ baptism and the Lord’s Supper",
+          statement: "American Baptists partake of two ordinances: believer’s baptism and the Lord’s Supper.",
+          explanation: "Baptism, an act of full immersion following Christ’s example, is undertaken by those spiritually mature enough to understand its profound, symbolic significance: resurrection to new life in Christ. Through the Lord’s Supper, or Holy Communion, the bread and cup that symbolize the broken body and shed blood offered by Christ recall God’s great love for us — just as they did for the disciples on the eve of Christ’s crucifixion.",
+        },
+        {
+          heading: "Direct relationship with God and shared ministry",
+          statement: "American Baptists believe that the committed individual Christian can and should approach God directly, and that individual gifts of ministry should be shared.",
+          explanation: "American Baptists hold that all who truly seek God are both competent and called to develop in that relationship. They have rejected creeds or other statements that might compromise each believer’s obligation to interpret Scripture under the guidance of the Holy Spirit and within the community of faith. American Baptists also celebrate the special gifts of all believers, testifying that God can use each of us in ministry.",
+        },
+        {
+          heading: "Evangelism and mission",
+          statement: "American Baptists take seriously the call to evangelism and missionary work.",
+          explanation: "American Baptist worldwide mission work is a response to Christ’s call to “make disciples of all nations.” Through the efforts of our missionaries in partnership with others, ministries of evangelism, healing, education and development have made Christ’s love known in the U.S. and around the world.",
+        },
+        {
+          heading: "Religious freedom and respect for others",
+          statement: "American Baptists support religious freedom and respect the expressions of faith of others.",
+          explanation: "As a people whose forbears came together in response to intolerance, American Baptists have cherished freedom and pursued it for millions around the world. Manifestations of that ideal include supporting separation of church and state, advocating for people everywhere to be guaranteed the right to worship free from discrimination, and lifting up respectful dialogue as a healthy means to understanding.",
+        },
+        {
+          heading: "Cooperative ministry",
+          statement: "American Baptists acknowledge that God’s family extends beyond our local churches, and that God calls us to cooperative ministries.",
+          explanation: "Early Baptists saw that the effectiveness of their ministries would be greater through cooperation with other believers. Today within our American Baptist regions, churches work with each other and with denominational staff and in local and regional ecumenical arenas to increase the vitality and scope of their ministries. That outreach extends worldwide through our relationships with the Baptist World Alliance, the National Council of the Churches of Christ, the World Council of Churches and other groups.",
+        },
+        {
+          heading: "Justice and wholeness in society",
+          statement: "American Baptists have been called to be Christ’s witnesses for justice and wholeness within a broken society.",
+          explanation: "American Baptists have been led by the Gospel mandates to promote holistic change within society, as witnessed by their advocacy of freed African Americans following the Civil War, the Civil Rights Movement, women in church and societal leadership, ecological responsibility, and many other issues. While not all of one mind as to how to deal with challenges, American Baptists do affirm the need to follow Christ’s example by being actively involved in changing society.",
+        },
+        {
+          heading: "Racial, cultural, and theological diversity",
+          statement: "American Baptist Churches USA celebrates the racial, cultural and theological diversity witnessed within its membership.",
+          explanation: "American Baptist Churches USA today is the most racially inclusive Protestant body. Represented in our churches are equally diverse worship styles, cultural mores and approaches to Scriptural interpretation. The resulting challenges and opportunities have made us stronger — through fellowship, respect, mutual support and dialogue, all based on a belief that unity in Christ involves growth and understanding.",
+        },
+        {
+          heading: "Renewal and a vital witness",
+          statement: "American Baptists heed the biblical call to renewal and the need for a vital witness in a new millennium.",
+          explanation: "As people of faith, American Baptists seek renewal and revitalization. Informed by their history and tradition, motivated by contemporary needs and challenges, and strengthened by God’s leading and the example and sacrifice of their Savior, American Baptists seek to bring a transforming witness to an uncharted future.",
+        },
+      ],
+    },
+  },
+  missionsPage: {
+    title: "Missions and Ministries",
+    description: "Learn how First Baptist Church of Laramie serves neighbors, supports Camp Wyoba, participates in Baptist mission offerings, and celebrates women in ministry.",
+    heroHeading: "Loving our Neighbors through Mission and Ministries",
+    introduction: "We share Christ’s love in both word and deed — in Laramie, across the region, and around the world. To learn more or find out how you might help, contact the church.",
+    communitySections: [
+      {
+        heading: "Monthly service projects",
+        paragraphs: ["Every month, First Baptist Laramie collects donations and provides acts of service for Laramie community programs, including:"],
+        listItems: ["The Soup Kitchen", "Local food pantries", "The Clothing Cottage", "Laramie Interfaith", "Heart to Heart Pregnancy Resource Center", "The Back2School Giveaway"],
+      },
+      {
+        heading: "A lasting endowment",
+        paragraphs: ["One church family created the Burman Fund, a lasting endowment that continues this church spirit of generosity for the benefit of the Laramie community. Distributions are made throughout the year."],
+      },
+      {
+        heading: "Community partnerships and holidays",
+        paragraphs: ["Pastor Lummi Kaping is an active member of the Laramie Ministerial Council and community holiday groups, attending monthly meetings and supporting local events. The church provides meeting space, hosts the community’s annual gift distribution, and sponsors gifts for individuals and families."],
+      },
+      {
+        heading: "Sharing our facility",
+        paragraphs: ["First Baptist opens its doors for community gatherings and services, including food distribution, community dinners, blood drives, suicide prevention seminars, the National Day of Prayer, music recitals, and veterans’ events.", "The church currently rents space to the following groups:"],
+        listItems: ["Laramie Christian Academy, a private Christian school", "Cornerstone Music Studios", "The Ghanaian Church of the Pentecost"],
+      },
+    ],
+    campWyobaSections: [
+      {
+        heading: "Summer camps, retreats, and work weekends",
+        paragraphs: ["Camp Wyoba offers faith-based programs for youth, families, and adults at its facilities in the pine forest atop Casper Mountain. Programs include:"],
+        listItems: ["Family Camp", "Grade School Camp", "Jr. High Camp", "Sr. High Camp", "An annual Women’s Retreat", "Work weekends to care for the camp property"],
+      },
+      {
+        heading: "Leadership and service",
+        paragraphs: ["First Baptist Laramie has a long history of voluntary service and leadership at Camp Wyoba. Church members have served as camp director, camp pastor, counselors, nurse, cook, and work weekend crew."],
+      },
+      {
+        heading: "Camp scholarships",
+        paragraphs: ["The First Baptist Laramie Endowment Fund can provide a limited number of camp scholarships. Camp Wyoba also lowers fees and awards additional scholarships based on financial need to help make camp accessible."],
+      },
+      {
+        heading: "2026–2027 annual project",
+        paragraphs: ["Churches and grateful individuals contribute each year toward Camp Wyoba’s capital maintenance. The 2026–2027 goal is to raise $25,000 to replace the foundation of the Jeff Fox Cabin."],
+      },
+    ],
+    offeringsIntroduction: "American Baptist Churches USA (ABCUSA) promotes four main special offerings each year. First Baptist Laramie supports all four and has often ranked among the top five giving churches in the region, which includes roughly 70 churches.",
+    specialOfferings: [
+      { name: "America for Christ Offering", season: "February–March", purpose: "Leadership development, community healing, justice initiatives, and discipleship." },
+      { name: "One Great Hour of Sharing", season: "May–June", purpose: "Disaster relief, ministries to displaced persons, and development projects." },
+      { name: "World Mission Offering", season: "September–October", purpose: "Global missions, health, economic development, and other mission priorities." },
+      { name: "Retired Ministers and Missionaries Offering", season: "November–December", purpose: "Support for ministers, missionaries, and their widowed spouses." },
+    ],
+    womenInMinistryIntroduction: "American Baptist churches have affirmed women’s ordination for more than a century, recognizing women as called and gifted by God for ministry. Women have shaped the life and leadership of First Baptist Laramie across generations.",
+    womenInMinistrySections: [
+      {
+        heading: "Jane and Morley Langdon",
+        paragraphs: ["In 1974, First Baptist Laramie ordained the Rev. Jane Langdon and her spouse, the Rev. Morley Langdon. Together they served regional churches and a Native American mission, then continued as volunteer missionaries in Thailand after retirement."],
+      },
+      {
+        heading: "Margaret Prine",
+        paragraphs: ["In 1984–1985, the late Margaret Prine — a University of Wyoming professor and active member of First Baptist Laramie — served as the first female National President of American Baptist Churches USA."],
+      },
+      {
+        heading: "Women pastors",
+        paragraphs: ["Two women have served as pastors of the congregation: the Rev. Mary Beth Mankin from 2005 to 2012, and the Rev. Karen Sundland from 2021 to 2023."],
+      },
+      {
+        heading: "Clergy in lay leadership",
+        paragraphs: ["Two retired female clergy provide lay leadership in the church: the Rev. Jane Langdon and the Rev. Carol Carr, retired Chief Chaplain of the Cheyenne VA."],
+      },
     ],
   },
   givingPage: {

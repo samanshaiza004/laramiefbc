@@ -1,0 +1,135 @@
+---
+import type { MissionsPageContent } from "../lib/cms/types";
+import CmsImage from "./CmsImage.astro";
+import womenInMinistryPoster from "../assets/church/women-in-ministry-poster.png";
+
+interface Props {
+  missionsPage: MissionsPageContent;
+  email: string;
+}
+
+const { missionsPage, email } = Astro.props;
+---
+
+<header class="missions-hero section">
+  <div class="site-container missions-hero-inner">
+    <p class="eyebrow">Missions and ministries</p>
+    <h1 class="display-heading">{missionsPage.heroHeading}</h1>
+    <p class="missions-introduction">{missionsPage.introduction}</p>
+    <a class="button" href={`mailto:${email}`}>Ask how you can help</a>
+  </div>
+</header>
+
+<section class="missions-community section" aria-labelledby="missions-community-heading">
+  <div class="site-container">
+    <header class="missions-section-heading">
+      <p class="eyebrow">Here in Laramie</p>
+      <h2 class="section-heading" id="missions-community-heading">Laramie community</h2>
+    </header>
+    <div class="missions-article-list">
+      {missionsPage.communitySections.map((section, index) => (
+        <article class="missions-article-row" aria-labelledby={`community-section-${index}`}>
+          <h3 id={`community-section-${index}`}>{section.heading}</h3>
+          <div class="missions-prose">
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.listItems && (
+              <ul>
+                {section.listItems.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="missions-camp section" aria-labelledby="missions-camp-heading">
+  <div class="site-container">
+    <header class="missions-section-heading">
+      <p class="eyebrow">Up on Casper Mountain</p>
+      <h2 class="section-heading" id="missions-camp-heading">Camp Wyoba</h2>
+    </header>
+    <div class="missions-article-list">
+      {missionsPage.campWyobaSections.map((section, index) => (
+        <article class="missions-article-row" aria-labelledby={`wyoba-section-${index}`}>
+          <h3 id={`wyoba-section-${index}`}>{section.heading}</h3>
+          <div class="missions-prose">
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.listItems && (
+              <ul>
+                {section.listItems.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+    <a class="text-link missions-external-link" href="https://www.campwyoba.org" target="_blank" rel="noopener noreferrer">Visit Camp Wyoba <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<section class="missions-offerings section" aria-labelledby="missions-offerings-heading">
+  <div class="site-container">
+    <header class="missions-section-heading">
+      <p class="eyebrow">Across the ABCUSA</p>
+      <h2 class="section-heading" id="missions-offerings-heading">American Baptist special offerings</h2>
+      <p class="missions-introduction">{missionsPage.offeringsIntroduction}</p>
+    </header>
+    <div class="offering-list">
+      {missionsPage.specialOfferings.map((offering) => (
+        <article class="offering-row">
+          <h3>{offering.name}</h3>
+          <p class="offering-season">{offering.season}</p>
+          <p class="offering-purpose">{offering.purpose}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="missions-women section" aria-labelledby="missions-women-heading">
+  <div class="site-container">
+    <header class="missions-section-heading missions-women-heading">
+      <p class="eyebrow">Called and gifted</p>
+      <h2 class="section-heading" id="missions-women-heading">Women in ministry</h2>
+      <p class="missions-introduction">{missionsPage.womenInMinistryIntroduction}</p>
+    </header>
+    <div class="missions-women-grid">
+      <figure class="women-ministry-poster">
+        <CmsImage
+          source={womenInMinistryPoster}
+          alt="A purple and pink American Baptist Women in Ministry poster showing a woman with raised arms and a Bible."
+          sizes="(max-width: 699px) 70vw, 18rem"
+          class="women-ministry-poster-image"
+        />
+        <figcaption>American Baptist Women in Ministry</figcaption>
+      </figure>
+      <div class="missions-article-list missions-women-list">
+        {missionsPage.womenInMinistrySections.map((section, index) => (
+          <article class="missions-article-row" aria-labelledby={`women-section-${index}`}>
+            <h3 id={`women-section-${index}`}>{section.heading}</h3>
+            <div class="missions-prose">
+              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              {section.listItems && (
+                <ul>
+                  {section.listItems.map((item) => <li>{item}</li>)}
+                </ul>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="missions-contact section" aria-labelledby="missions-contact-heading">
+  <div class="site-container missions-contact-inner">
+    <div>
+      <p class="eyebrow">Find a way to take part</p>
+      <h2 class="section-heading" id="missions-contact-heading">There’s room to help.</h2>
+    </div>
+    <a class="button button-on-dark" href={`mailto:${email}`}>Contact the Church</a>
+  </div>
+</section>

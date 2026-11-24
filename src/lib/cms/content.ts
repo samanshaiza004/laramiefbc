@@ -75,7 +75,7 @@ export async function getCmsContent(overrides?: RuntimeEnv): Promise<ParsedCmsCo
   const client = createSanityClient(env);
   const content = removeNullValues(await client.fetch<unknown>(CMS_CONTENT_QUERY)) as Partial<CmsContent>;
 
-  for (const key of ["settings", "homepage", "visitPage", "aboutPage", "givingPage"] as const) {
+  for (const key of ["settings", "homepage", "visitPage", "aboutPage", "missionsPage", "givingPage"] as const) {
     if (!content[key]) throw new Error(missingDocumentMessage(key));
   }
 
@@ -85,6 +85,7 @@ export async function getCmsContent(overrides?: RuntimeEnv): Promise<ParsedCmsCo
     homepage: content.homepage!,
     visitPage: content.visitPage!,
     aboutPage: content.aboutPage!,
+    missionsPage: content.missionsPage!,
     givingPage: content.givingPage!,
     sermons: content.sermons ?? [],
     sermonSeries: content.sermonSeries ?? [],

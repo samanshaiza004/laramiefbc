@@ -62,6 +62,11 @@ const practicalDetails = [
           <p class="visit-service-note">{service.notes}</p>
         </div>
       ))}
+      <div class="visit-service-row">
+        <p class="visit-service-label">{settings.fellowship.label}</p>
+        <p class="visit-service-value">{settings.fellowship.day}<span aria-hidden="true"> · </span>{settings.fellowship.time}</p>
+        <p class="visit-service-note">{settings.fellowship.notes}</p>
+      </div>
     </div>
     <address class="visit-address">
       <p class="visit-address-kicker">Find us</p>

@@ -45,6 +45,8 @@ test.describe("M2 homepage", () => {
     await expect(page.getByRole("heading", { name: "Biblical Truth", level: 3 })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Love Our Neighbors", level: 3 })).toBeVisible();
     await expect(page.getByText("Christ’s love — in both word and deed", { exact: false }).first()).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Our denominational affiliation", level: 2 })).toBeVisible();
+    await expect(page.locator(".distinctives-list > li")).toHaveCount(10);
   });
 
   test("puts newcomer information and service navigation in the homepage hierarchy", async ({ page }) => {
@@ -69,12 +71,43 @@ test.describe("M2 homepage", () => {
     expect(results.violations).toEqual([]);
   });
 
+  test("keeps the red Sunday schedule and Visit band readable across widths", async ({ page }) => {
+    for (const route of ["/", "/visit"]) {
+      await page.goto(route, { waitUntil: "domcontentloaded" });
+      for (const width of [320, 375, 700, 768, 900, 1024, 1199, 1200, 1440, 1920]) {
+        await page.setViewportSize({ width, height: 900 });
+        expect(await page.evaluate(() => document.documentElement.scrollWidth), `${route} at ${width}px`).toBeLessThanOrEqual(width);
+      }
+    }
+  });
+
+  test("shows the new fellowship and Facebook details before the homepage address", async ({ page }) => {
+    await page.goto("/");
+    const band = page.locator(".home-service-band");
+    await expect(band.getByText("Fellowship", { exact: true })).toBeVisible();
+    await expect(band.getByText("Sunday · 12:00–12:30 p.m.", { exact: false })).toBeVisible();
+    await expect(band.getByRole("link", { name: "Facebook" })).toHaveAttribute("href", "https://www.facebook.com/LaramieFirstBaptist/");
+    const order = (await band.locator(".home-service-address").innerText()).toLowerCase();
+    expect(order.indexOf("follow us")).toBeLessThan(order.indexOf("find us"));
+  });
+
+  test("renders the structured missions page and Women in Ministry poster", async ({ page }) => {
+    await page.goto("/missions-and-ministries");
+    await expect(page.getByRole("heading", { name: "Loving our Neighbors through Mission and Ministries", level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Laramie community", level: 2 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Camp Wyoba", level: 2 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Women in ministry", level: 2 })).toBeVisible();
+    await expect(page.getByRole("img", { name: /American Baptist Women in Ministry poster/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Visit Camp Wyoba" })).toHaveAttribute("href", "https://www.campwyoba.org");
+  });
+
   test("renders core routes without JavaScript", async ({ browser }) => {
+    test.setTimeout(60_000);
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
 
-    for (const route of ["/", "/visit", "/about", "/contact", "/connect", "/sermons", "/events", "/leadership", "/give", "/sermons/synthetic-sermon-preview"]) {
-      const response = await page.goto(route);
+    for (const route of ["/", "/visit", "/about", "/missions-and-ministries", "/contact", "/connect", "/sermons", "/events", "/leadership", "/give", "/sermons/synthetic-sermon-preview"]) {
+      const response = await page.goto(route, { waitUntil: "domcontentloaded" });
       expect(response?.ok()).toBe(true);
       await expect(page.locator("main#main-content")).toBeVisible();
     }
@@ -127,6 +160,7 @@ test.describe("M4 dynamic content pages", () => {
     await page.goto("/visit");
     await expect(page.getByText("Sunday · 9:30–10:30 a.m.", { exact: false })).toBeVisible();
     await expect(page.getByText("Sunday · 11:00 a.m.–12:00 p.m.", { exact: false })).toBeVisible();
+    await expect(page.getByText("Sunday · 12:00–12:30 p.m.", { exact: false })).toBeVisible();
     await expect(page.getByText("Women’s Bible Study", { exact: true })).toBeVisible();
     await expect(page.getByText("Men’s Group", { exact: true })).toBeVisible();
     await expect(page.getByText("Communion is observed on the first Sunday of each month.", { exact: true })).toBeVisible();
@@ -154,7 +188,7 @@ test.describe("M4 dynamic content pages", () => {
   });
 
   test("keeps public internal links resolvable", async ({ page, request }) => {
-    const routes = ["/", "/visit", "/about", "/connect", "/contact", "/sermons", "/events", "/leadership", "/give", "/sermons/synthetic-sermon-preview"];
+    const routes = ["/", "/visit", "/about", "/missions-and-ministries", "/connect", "/contact", "/sermons", "/events", "/leadership", "/give", "/sermons/synthetic-sermon-preview"];
     const internalLinks = new Set<string>();
 
     for (const route of routes) {
@@ -179,6 +213,7 @@ test.describe("M3 newcomer pages", () => {
     const routes = [
       ["/visit", "Plan Your Visit"],
       ["/about", "About First Baptist Church"],
+      ["/missions-and-ministries", "Loving our Neighbors through Mission and Ministries"],
       ["/connect", "Find your way in."],
       ["/contact", "We’d be glad to hear from you."],
     ] as const;
@@ -192,14 +227,14 @@ test.describe("M3 newcomer pages", () => {
   test("keeps newcomer routes within the viewport on mobile", async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 700 });
 
-    for (const route of ["/visit", "/about", "/connect", "/contact"]) {
+    for (const route of ["/visit", "/about", "/missions-and-ministries", "/connect", "/contact"]) {
       await page.goto(route);
       expect(await page.evaluate(() => document.documentElement.scrollWidth), route).toBeLessThanOrEqual(320);
     }
   });
 
   test("has no critical axe violations on newcomer routes", async ({ page }) => {
-    for (const route of ["/visit", "/about", "/connect", "/contact"]) {
+    for (const route of ["/visit", "/about", "/missions-and-ministries", "/connect", "/contact"]) {
       await page.goto(route);
       const results = await new AxeBuilder({ page }).analyze();
       expect(results.violations, route).toEqual([]);

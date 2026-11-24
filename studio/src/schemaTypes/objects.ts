@@ -46,6 +46,38 @@ export const serviceTime = defineType({
   ],
 });
 
+export const missionSection = defineType({
+  name: "missionSection",
+  title: "Mission section",
+  type: "object",
+  fields: [
+    defineField({ name: "heading", type: "string", validation: (rule) => rule.required() }),
+    defineField({
+      name: "paragraphs",
+      type: "array",
+      of: [defineArrayMember({ type: "text" })],
+      validation: (rule) => rule.min(1),
+    }),
+    defineField({
+      name: "listItems",
+      title: "Optional list items",
+      type: "array",
+      of: [defineArrayMember({ type: "string" })],
+    }),
+  ],
+});
+
+export const specialOffering = defineType({
+  name: "specialOffering",
+  title: "Special offering",
+  type: "object",
+  fields: [
+    defineField({ name: "name", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "season", title: "Season promoted", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "purpose", type: "text", rows: 2, validation: (rule) => rule.required() }),
+  ],
+});
+
 export const recurringGathering = defineType({
   name: "recurringGathering",
   title: "Recurring gathering",
@@ -81,6 +113,17 @@ export const contentSection = defineType({
       of: [defineArrayMember({ type: "text" })],
       validation: (rule) => rule.min(1),
     }),
+  ],
+});
+
+export const denominationalFact = defineType({
+  name: "denominationalFact",
+  title: "American Baptist fact",
+  type: "object",
+  fields: [
+    defineField({ name: "heading", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "statement", type: "text", rows: 3, validation: (rule) => rule.required() }),
+    defineField({ name: "explanation", type: "text", rows: 6, validation: (rule) => rule.required() }),
   ],
 });
 

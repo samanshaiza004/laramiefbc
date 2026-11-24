@@ -41,7 +41,7 @@ const currentPath = normalizePath(Astro.url.pathname);
 
 <script>
   const navigationDetails = document.querySelector<HTMLDetailsElement>(".nav-details");
-  if (navigationDetails && window.matchMedia("(max-width: 899px)").matches) {
+  if (navigationDetails && window.matchMedia("(max-width: 1199px)").matches) {
     navigationDetails.removeAttribute("open");
   }
 </script>
